@@ -89,6 +89,30 @@ hirebox-skill-manager-portable/
 .\hirebox.cmd 查看本地技能
 ```
 
+## 搜索指定平台技能
+
+查看某个平台目录下的全部技能清单：
+
+```powershell
+.\hirebox.cmd 搜索技能 Codex
+```
+
+也可以使用：
+
+```powershell
+.\hirebox.cmd 查看平台技能 Codex
+```
+
+便携包内也提供了常用平台快捷脚本：
+
+```powershell
+.\查看Codex技能.cmd
+.\查看Claude技能.cmd
+.\查看Antigravity技能.cmd
+```
+
+搜索结果会把 Hirebox 管理或安装的技能排在最前面，其后显示平台原生技能或手动放入的技能。
+
 ## 安装技能
 
 安装某个技能到所有已配置平台：
