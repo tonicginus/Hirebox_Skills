@@ -1,0 +1,17 @@
+{
+  "name": "hirebox-skill-manager-portable",
+  "version": "0.1.0",
+  "description": "Portable Hirebox Skill Manager package. Download and run with Node.js installed.",
+  "entrypoints": {
+    "windowsCmd": "hirebox-skill-manager-portable\\start.cmd",
+    "powershell": "hirebox-skill-manager-portable\\start.ps1",
+    "node": "hirebox-skill-manager-portable\\src\\index.js"
+  },
+  "requirements": [
+    "Node.js"
+  ],
+  "distribution": {
+    "mode": "portable",
+    "archive": "hirebox-skill-manager-portable.zip"
+  }
+}

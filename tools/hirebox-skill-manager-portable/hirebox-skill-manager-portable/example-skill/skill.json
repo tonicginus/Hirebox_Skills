@@ -1,0 +1,16 @@
+{
+  "name": "example-skill",
+  "version": "0.1.0",
+  "description": "Example Hirebox skill for cross-platform sync.",
+  "platforms": [
+    "codex",
+    "claude",
+    "antigravity"
+  ],
+  "dependencies": [
+    {
+      "name": "shared-prompts",
+      "version": "*"
+    }
+  ]
+}
