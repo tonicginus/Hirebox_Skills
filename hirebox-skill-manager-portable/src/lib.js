@@ -23,6 +23,7 @@ const INDEX_FILE = "skills-index.json";
 const SKILLS_DIRNAME = "skills";
 const PACKAGES_DIRNAME = "packages";
 const PORTABLE_PACKAGE_NAME = "hirebox-skill-manager-portable";
+const HIREBOX_MARKER_FILE = ".hirebox-skill.json";
 
 const defaultConfig = {
   github: {
@@ -130,6 +131,56 @@ export async function listInstalledSkills(config) {
   }
 
   return results;
+}
+
+export async function listPlatformSkills(config, requestedPlatformName) {
+  const [platformName, platform] = resolvePlatform(config, requestedPlatformName);
+  if (!pathExistsSync(platform.installDir)) {
+    return {
+      platform: platformName,
+      installDir: platform.installDir,
+      skills: []
+    };
+  }
+
+  const remoteSkillNames = new Set((await readRemoteIndexIfAvailable(config)).map((skill) => skill.name));
+  const entries = await readdir(platform.installDir, { withFileTypes: true });
+  const skills = [];
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || entry.name.startsWith(".tmp-")) {
+      continue;
+    }
+
+    const skillDir = path.join(platform.installDir, entry.name);
+    const manifest = await readManifestIfExists(skillDir);
+    const marker = await readHireboxMarkerIfExists(skillDir);
+    const name = manifest?.name || marker?.name || entry.name;
+    const isHirebox = isHireboxManagedSkill({ name, manifest, marker, remoteSkillNames });
+
+    skills.push({
+      platform: platformName,
+      name,
+      version: manifest?.version || marker?.version || "unknown",
+      source: isHirebox ? "Hirebox" : "Platform",
+      isHirebox,
+      path: skillDir,
+      dependencies: normalizeDependencies(manifest?.dependencies || [])
+    });
+  }
+
+  skills.sort((a, b) => {
+    if (a.isHirebox !== b.isHirebox) {
+      return a.isHirebox ? -1 : 1;
+    }
+    return a.name.localeCompare(b.name, "en");
+  });
+
+  return {
+    platform: platformName,
+    installDir: platform.installDir,
+    skills
+  };
 }
 
 export async function installSkill(config, skillName, targetPlatform, options = {}) {
@@ -271,6 +322,9 @@ export async function buildPortablePackage(config) {
   await writeFile(path.join(portableDir, "初始化.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 初始化\r\n", "utf8");
   await writeFile(path.join(portableDir, "查看云端技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 查看云端技能\r\n", "utf8");
   await writeFile(path.join(portableDir, "查看本地技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 查看本地技能\r\n", "utf8");
+  await writeFile(path.join(portableDir, "查看Codex技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 搜索技能 Codex\r\n", "utf8");
+  await writeFile(path.join(portableDir, "查看Claude技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 搜索技能 Claude\r\n", "utf8");
+  await writeFile(path.join(portableDir, "查看Antigravity技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 搜索技能 Antigravity\r\n", "utf8");
   await writeFile(path.join(portableDir, "同步技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 同步技能\r\n", "utf8");
   await writeFile(
     path.join(portableDir, "QUICKSTART.md"),
@@ -286,12 +340,14 @@ export async function buildPortablePackage(config) {
       "```powershell",
       ".\\初始化.cmd",
       ".\\查看云端技能.cmd",
+      ".\\查看Codex技能.cmd",
       ".\\同步技能.cmd",
       "```",
       "",
       "需要指定技能名称或平台时，使用主命令：",
       "",
       "```powershell",
+      ".\\hirebox.cmd 搜索技能 Codex",
       ".\\hirebox.cmd 安装技能 seo-writer codex",
       ".\\hirebox.cmd 发布技能 C:\\skills\\seo-writer",
       "```",
@@ -380,6 +436,7 @@ async function installSkillWithDependencies(config, skill, targetPlatform, optio
     await rm(targetDir, { recursive: true, force: true });
     await mkdir(platform.installDir, { recursive: true });
     await installSkillPayload(config, skill, targetDir, sourceMode);
+    await writeInstallMarker(config, targetDir, skill, platformName);
     console.log(`Installed ${skill.name} -> ${platformName} (${targetDir})`);
   }
 
@@ -479,6 +536,15 @@ async function readRemoteIndex(config) {
   return results;
 }
 
+async function readRemoteIndexIfAvailable(config) {
+  const indexPath = path.join(config.localRepoDir, INDEX_FILE);
+  if (!pathExistsSync(indexPath)) {
+    return [];
+  }
+
+  return readJson(indexPath);
+}
+
 async function readManifestIfExists(skillDir) {
   const manifestPath = path.join(skillDir, "skill.json");
   if (!pathExistsSync(manifestPath)) {
@@ -486,6 +552,15 @@ async function readManifestIfExists(skillDir) {
   }
 
   return readJson(manifestPath);
+}
+
+async function readHireboxMarkerIfExists(skillDir) {
+  const markerPath = path.join(skillDir, HIREBOX_MARKER_FILE);
+  if (!pathExistsSync(markerPath)) {
+    return null;
+  }
+
+  return readJson(markerPath);
 }
 
 async function loadLocalManifest(sourceDir, requestedName) {
@@ -546,6 +621,34 @@ function skillSupportsPlatform(skill, platformName) {
 
 function findSkillByName(index, skillName) {
   return index.find((skill) => skill.name === skillName);
+}
+
+function isHireboxManagedSkill({ name, manifest, marker, remoteSkillNames }) {
+  if (marker?.source === "hirebox") {
+    return true;
+  }
+
+  const declaredSource = `${manifest?.source || manifest?.publisher || manifest?.vendor || ""}`.toLowerCase();
+  if (declaredSource === "hirebox") {
+    return true;
+  }
+
+  if (remoteSkillNames.has(name)) {
+    return true;
+  }
+
+  return name.toLowerCase().startsWith("hirebox");
+}
+
+async function writeInstallMarker(config, targetDir, skill, platformName) {
+  await writeJson(path.join(targetDir, HIREBOX_MARKER_FILE), {
+    source: "hirebox",
+    repository: config.github.repository,
+    platform: platformName,
+    name: skill.name,
+    version: skill.version || "unknown",
+    installedAt: new Date().toISOString()
+  });
 }
 
 function getArchiveAbsolutePath(config, archiveRelativePath, skillName, version) {
@@ -654,6 +757,20 @@ function mergePlatforms(defaultPlatforms, customPlatforms) {
     };
   }
   return merged;
+}
+
+function resolvePlatform(config, requestedPlatformName) {
+  if (!requestedPlatformName) {
+    throw new Error("Missing platform. Usage: search <platform>");
+  }
+
+  const normalized = requestedPlatformName.toLowerCase();
+  const entry = Object.entries(config.platforms).find(([name]) => name.toLowerCase() === normalized);
+  if (!entry) {
+    throw new Error(`Unknown platform: ${requestedPlatformName}`);
+  }
+
+  return entry;
 }
 
 async function readJson(filePath) {

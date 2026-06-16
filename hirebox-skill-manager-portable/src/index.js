@@ -10,6 +10,7 @@ import {
   initWorkspace,
   installSkill,
   listInstalledSkills,
+  listPlatformSkills,
   listRemoteSkills,
   publishPortablePackage,
   publishSkill,
@@ -25,6 +26,8 @@ Usage:
   hirebox 初始化
   hirebox 查看云端技能
   hirebox 查看本地技能
+  hirebox 搜索技能 <platform>
+  hirebox 查看平台技能 <platform>
   hirebox 安装技能 <skill-name> [platform]
   hirebox 发布技能 <local-skill-path> [skill-name]
   hirebox 导入技能 <platform> <skill-name> [remote-name]
@@ -37,6 +40,7 @@ Usage:
 
 Examples:
   hirebox 初始化
+  hirebox 搜索技能 Codex
   hirebox 安装技能 seo-writer codex
   hirebox 发布技能 C:\\skills\\my-skill seo-writer
   hirebox 导入技能 codex seo-writer
@@ -56,6 +60,8 @@ function normalizeArgs(args) {
     ["查看云端技能", ["remote", "list"]],
     ["查看远程技能", ["remote", "list"]],
     ["查看本地技能", ["local", "list"]],
+    ["搜索技能", ["platform", "list", subcommand]],
+    ["查看平台技能", ["platform", "list", subcommand]],
     ["安装技能", ["install", subcommand, ...rest]],
     ["发布技能", ["publish", subcommand, ...rest]],
     ["导入技能", ["import", subcommand, ...rest]],
@@ -125,6 +131,26 @@ async function main() {
     for (const skill of skills) {
       const deps = skill.dependencies.map((item) => item.name).join(", ") || "-";
       console.log(`${skill.platform}  ${skill.name}  ${skill.version}  deps:${deps}  ${skill.path}`);
+    }
+    return;
+  }
+
+  if ((command === "platform" && subcommand === "list") || command === "search") {
+    const platformName = command === "search" ? subcommand : rest[0];
+    if (!platformName) {
+      throw new Error("Missing platform. Usage: hirebox 搜索技能 <platform>");
+    }
+
+    const result = await listPlatformSkills(config, platformName);
+    if (!result.skills.length) {
+      console.log(`No skills found in ${result.platform}: ${result.installDir}`);
+      return;
+    }
+
+    console.log(`${result.platform} skills (${result.installDir})`);
+    for (const skill of result.skills) {
+      const deps = skill.dependencies.map((item) => item.name).join(", ") || "-";
+      console.log(`${skill.source}  ${skill.name}  ${skill.version}  deps:${deps}  ${skill.path}`);
     }
     return;
   }

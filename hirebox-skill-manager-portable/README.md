@@ -55,6 +55,8 @@ my-skill/
 hirebox 初始化
 hirebox 查看云端技能
 hirebox 查看本地技能
+hirebox 搜索技能 Codex
+hirebox 查看平台技能 Claude
 hirebox 安装技能 example-skill codex
 hirebox 发布技能 C:\skills\example-skill
 hirebox 导入技能 codex example-skill
@@ -99,12 +101,14 @@ Hirebox_Skills/
 ```powershell
 .\初始化.cmd
 .\查看云端技能.cmd
+.\查看Codex技能.cmd
 .\同步技能.cmd
 ```
 
 需要指定技能名称或平台时，使用主命令：
 
 ```powershell
+.\hirebox.cmd 搜索技能 Codex
 .\hirebox.cmd 安装技能 example-skill codex
 .\hirebox.cmd 发布技能 C:\skills\example-skill
 ```
