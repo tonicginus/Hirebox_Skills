@@ -1,6 +1,7 @@
 import { existsSync } from "node:fs";
 import {
   cp,
+  chmod,
   mkdir,
   readFile,
   readdir,
@@ -319,6 +320,8 @@ export async function buildPortablePackage(config) {
 
   await writeFile(path.join(portableDir, "hirebox.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" %*\r\n", "utf8");
   await writeFile(path.join(portableDir, "hirebox.ps1"), "node \"$PSScriptRoot\\src\\index.js\" $args\n", "utf8");
+  await writeExecutable(path.join(portableDir, "hirebox.sh"), "#!/usr/bin/env sh\nnode \"$(dirname \"$0\")/src/index.js\" \"$@\"\n");
+  await writeExecutable(path.join(portableDir, "hirebox"), "#!/usr/bin/env sh\nnode \"$(dirname \"$0\")/src/index.js\" \"$@\"\n");
   await writeFile(path.join(portableDir, "初始化.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 初始化\r\n", "utf8");
   await writeFile(path.join(portableDir, "查看云端技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 查看云端技能\r\n", "utf8");
   await writeFile(path.join(portableDir, "查看本地技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 查看本地技能\r\n", "utf8");
@@ -326,6 +329,13 @@ export async function buildPortablePackage(config) {
   await writeFile(path.join(portableDir, "查看Claude技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 搜索技能 Claude\r\n", "utf8");
   await writeFile(path.join(portableDir, "查看Antigravity技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 搜索技能 Antigravity\r\n", "utf8");
   await writeFile(path.join(portableDir, "同步技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 同步技能\r\n", "utf8");
+  await writeExecutable(path.join(portableDir, "init.sh"), "#!/usr/bin/env sh\nnode \"$(dirname \"$0\")/src/index.js\" 初始化\n");
+  await writeExecutable(path.join(portableDir, "list-remote-skills.sh"), "#!/usr/bin/env sh\nnode \"$(dirname \"$0\")/src/index.js\" 查看云端技能\n");
+  await writeExecutable(path.join(portableDir, "list-local-skills.sh"), "#!/usr/bin/env sh\nnode \"$(dirname \"$0\")/src/index.js\" 查看本地技能\n");
+  await writeExecutable(path.join(portableDir, "list-codex-skills.sh"), "#!/usr/bin/env sh\nnode \"$(dirname \"$0\")/src/index.js\" 搜索技能 Codex\n");
+  await writeExecutable(path.join(portableDir, "list-claude-skills.sh"), "#!/usr/bin/env sh\nnode \"$(dirname \"$0\")/src/index.js\" 搜索技能 Claude\n");
+  await writeExecutable(path.join(portableDir, "list-antigravity-skills.sh"), "#!/usr/bin/env sh\nnode \"$(dirname \"$0\")/src/index.js\" 搜索技能 Antigravity\n");
+  await writeExecutable(path.join(portableDir, "sync-skills.sh"), "#!/usr/bin/env sh\nnode \"$(dirname \"$0\")/src/index.js\" 同步技能\n");
   await writeFile(
     path.join(portableDir, "QUICKSTART.md"),
     [
@@ -334,14 +344,24 @@ export async function buildPortablePackage(config) {
       "## 环境要求",
       "",
       "- 电脑已安装 Node.js",
+      "- 需要发布或同步 GitHub 仓库时，电脑已安装 Git",
       "",
-      "## 常用命令",
+      "## Windows 常用命令",
       "",
       "```powershell",
       ".\\初始化.cmd",
       ".\\查看云端技能.cmd",
       ".\\查看Codex技能.cmd",
       ".\\同步技能.cmd",
+      "```",
+      "",
+      "## macOS / Linux 常用命令",
+      "",
+      "```bash",
+      "sh ./init.sh",
+      "sh ./list-remote-skills.sh",
+      "sh ./list-codex-skills.sh",
+      "sh ./sync-skills.sh",
       "```",
       "",
       "需要指定技能名称或平台时，使用主命令：",
@@ -352,11 +372,22 @@ export async function buildPortablePackage(config) {
       ".\\hirebox.cmd 发布技能 C:\\skills\\seo-writer",
       "```",
       "",
+      "```bash",
+      "sh ./hirebox.sh 搜索技能 Codex",
+      "sh ./hirebox.sh 安装技能 seo-writer codex",
+      "sh ./hirebox.sh 发布技能 ~/skills/seo-writer",
+      "```",
+      "",
       "## 安装包维护",
       "",
       "```powershell",
       ".\\hirebox.cmd 生成安装包",
       ".\\hirebox.cmd 发布安装包",
+      "```",
+      "",
+      "```bash",
+      "sh ./hirebox.sh 生成安装包",
+      "sh ./hirebox.sh 发布安装包",
       "```"
     ].join("\n"),
     "utf8"
@@ -393,9 +424,12 @@ export async function publishPortablePackage(config) {
     entrypoints: {
       windowsCmd: `${PORTABLE_PACKAGE_NAME}\\hirebox.cmd`,
       powershell: `${PORTABLE_PACKAGE_NAME}\\hirebox.ps1`,
+      unixShell: `${PORTABLE_PACKAGE_NAME}/hirebox`,
+      bash: `${PORTABLE_PACKAGE_NAME}/hirebox.sh`,
       node: `${PORTABLE_PACKAGE_NAME}\\src\\index.js`
     },
-    requirements: ["Node.js"],
+    requirements: ["Node.js", "Git"],
+    platforms: ["windows", "linux", "macos"],
     distribution: {
       mode: "portable",
       archive: `${PORTABLE_PACKAGE_NAME}.zip`
@@ -672,6 +706,12 @@ async function zipDirectory(sourceDir, archivePath) {
   const parentDir = path.dirname(sourceDir);
   const folderName = path.basename(sourceDir);
   await mkdir(path.dirname(archivePath), { recursive: true });
+
+  if (process.platform !== "win32") {
+    await zipDirectoryOnUnix(parentDir, folderName, archivePath);
+    return;
+  }
+
   await execFileAsync(
     "powershell",
     [
@@ -697,22 +737,26 @@ async function unzipArchive(archivePath, targetDir) {
   await rm(stagingRoot, { recursive: true, force: true });
   await mkdir(stagingRoot, { recursive: true });
 
-  await execFileAsync(
-    "powershell",
-    [
-      "-NoProfile",
-      "-Command",
-      "Expand-Archive",
-      "-LiteralPath",
-      archivePath,
-      "-DestinationPath",
-      stagingRoot,
-      "-Force"
-    ],
-    {
-      windowsHide: true
-    }
-  );
+  if (process.platform === "win32") {
+    await execFileAsync(
+      "powershell",
+      [
+        "-NoProfile",
+        "-Command",
+        "Expand-Archive",
+        "-LiteralPath",
+        archivePath,
+        "-DestinationPath",
+        stagingRoot,
+        "-Force"
+      ],
+      {
+        windowsHide: true
+      }
+    );
+  } else {
+    await unzipArchiveOnUnix(archivePath, stagingRoot);
+  }
 
   const entries = await readdir(stagingRoot, { withFileTypes: true });
   const innerDir = entries.length === 1 && entries[0].isDirectory()
@@ -738,6 +782,47 @@ async function runGit(args, cwd, quiet = false) {
     const message = stderr || error.message;
     throw new Error(`Git command failed: git ${args.join(" ")}${message ? `\n${message}` : ""}`);
   }
+}
+
+async function unzipArchiveOnUnix(archivePath, destinationDir) {
+  const attempts = [
+    ["unzip", ["-q", archivePath, "-d", destinationDir]],
+    ["bsdtar", ["-xf", archivePath, "-C", destinationDir]],
+    ["ditto", ["-x", "-k", archivePath, destinationDir]]
+  ];
+
+  for (const [command, args] of attempts) {
+    try {
+      await execFileAsync(command, args, { windowsHide: true });
+      return;
+    } catch {
+      // Try the next common archive tool available on Unix-like systems.
+    }
+  }
+
+  throw new Error("Unable to extract zip archive. Please install unzip, bsdtar, or ditto.");
+}
+
+async function zipDirectoryOnUnix(parentDir, folderName, archivePath) {
+  const attempts = [
+    ["zip", ["-qr", archivePath, folderName]],
+    ["ditto", ["-c", "-k", "--keepParent", folderName, archivePath]],
+    ["bsdtar", ["-a", "-cf", archivePath, folderName]]
+  ];
+
+  for (const [command, args] of attempts) {
+    try {
+      await execFileAsync(command, args, {
+        cwd: parentDir,
+        windowsHide: true
+      });
+      return;
+    } catch {
+      // Try the next common archive tool available on Unix-like systems.
+    }
+  }
+
+  throw new Error("Unable to create zip archive. Please install zip, ditto, or bsdtar.");
 }
 
 function getConfigPath() {
@@ -779,6 +864,16 @@ async function readJson(filePath) {
 
 async function writeJson(filePath, data) {
   await writeFile(filePath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
+}
+
+async function writeExecutable(filePath, content) {
+  await writeFile(filePath, content, {
+    encoding: "utf8",
+    mode: 0o755
+  });
+  if (process.platform !== "win32") {
+    await chmod(filePath, 0o755);
+  }
 }
 
 async function readProjectVersion() {

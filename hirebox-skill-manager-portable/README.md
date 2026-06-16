@@ -12,6 +12,7 @@
 - 支持从本地平台目录反向导入 Skill
 - 支持 Skill 压缩包分发
 - 支持工具自身的便携安装包分发
+- 支持 Windows、macOS、Linux
 
 ## 初始化
 
@@ -87,6 +88,8 @@ Hirebox_Skills/
   hirebox-skill-manager-portable/
     hirebox.cmd
     hirebox.ps1
+    hirebox
+    hirebox.sh
     src/
     QUICKSTART.md
   hirebox-skill-manager-portable.zip
@@ -96,7 +99,9 @@ Hirebox_Skills/
   skills-index.json
 ```
 
-下载 `hirebox-skill-manager-portable.zip` 后，只要目标电脑已安装 Node.js，解压后运行：
+下载 `hirebox-skill-manager-portable.zip` 后，只要目标电脑已安装 Node.js，解压后运行。
+
+Windows：
 
 ```powershell
 .\初始化.cmd
@@ -105,12 +110,31 @@ Hirebox_Skills/
 .\同步技能.cmd
 ```
 
-需要指定技能名称或平台时，使用主命令：
+macOS / Linux：
+
+```bash
+sh ./init.sh
+sh ./list-remote-skills.sh
+sh ./list-codex-skills.sh
+sh ./sync-skills.sh
+```
+
+需要指定技能名称或平台时，使用主命令。
+
+Windows：
 
 ```powershell
 .\hirebox.cmd 搜索技能 Codex
 .\hirebox.cmd 安装技能 example-skill codex
 .\hirebox.cmd 发布技能 C:\skills\example-skill
+```
+
+macOS / Linux：
+
+```bash
+sh ./hirebox.sh 搜索技能 Codex
+sh ./hirebox.sh 安装技能 example-skill codex
+sh ./hirebox.sh 发布技能 ~/skills/example-skill
 ```
 
 ## GitHub 鉴权

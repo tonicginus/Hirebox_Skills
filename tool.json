@@ -5,10 +5,18 @@
   "entrypoints": {
     "windowsCmd": "hirebox-skill-manager-portable\\hirebox.cmd",
     "powershell": "hirebox-skill-manager-portable\\hirebox.ps1",
+    "unixShell": "hirebox-skill-manager-portable/hirebox",
+    "bash": "hirebox-skill-manager-portable/hirebox.sh",
     "node": "hirebox-skill-manager-portable\\src\\index.js"
   },
   "requirements": [
-    "Node.js"
+    "Node.js",
+    "Git"
+  ],
+  "platforms": [
+    "windows",
+    "linux",
+    "macos"
   ],
   "distribution": {
     "mode": "portable",
