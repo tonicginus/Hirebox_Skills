@@ -22,35 +22,64 @@ function printHelp() {
 Hirebox Skill Manager
 
 Usage:
-  hirebox-skill init
-  hirebox-skill repo sync
-  hirebox-skill remote list
-  hirebox-skill local list
-  hirebox-skill install <skill-name> [platform]
-  hirebox-skill publish <local-skill-path> [skill-name]
-  hirebox-skill import <platform> <skill-name> [remote-name]
-  hirebox-skill import-all <platform>
-  hirebox-skill archive build <local-skill-path> [skill-name]
-  hirebox-skill package self build
-  hirebox-skill package self publish
-  hirebox-skill sync [platform]
-  hirebox-skill sync archive [platform]
+  hirebox 初始化
+  hirebox 查看云端技能
+  hirebox 查看本地技能
+  hirebox 安装技能 <skill-name> [platform]
+  hirebox 发布技能 <local-skill-path> [skill-name]
+  hirebox 导入技能 <platform> <skill-name> [remote-name]
+  hirebox 批量导入 <platform>
+  hirebox 打包技能 <local-skill-path> [skill-name]
+  hirebox 生成安装包
+  hirebox 发布安装包
+  hirebox 同步技能 [platform]
+  hirebox 压缩包同步 [platform]
 
 Examples:
-  node ./src/index.js init
-  node ./src/index.js install seo-writer codex
-  node ./src/index.js publish C:\\skills\\my-skill seo-writer
-  node ./src/index.js import codex seo-writer
-  node ./src/index.js import-all claude
-  node ./src/index.js archive build C:\\skills\\my-skill
-  node ./src/index.js package self build
-  node ./src/index.js package self publish
-  node ./src/index.js sync claude
+  hirebox 初始化
+  hirebox 安装技能 seo-writer codex
+  hirebox 发布技能 C:\\skills\\my-skill seo-writer
+  hirebox 导入技能 codex seo-writer
+  hirebox 生成安装包
+  hirebox 发布安装包
+  hirebox 同步技能 claude
 `.trim());
 }
 
+function normalizeArgs(args) {
+  const [command, subcommand, ...rest] = args;
+  const phrase = [command, subcommand].filter(Boolean).join(" ");
+
+  const aliases = new Map([
+    ["初始化", ["init"]],
+    ["同步仓库", ["repo", "sync"]],
+    ["查看云端技能", ["remote", "list"]],
+    ["查看远程技能", ["remote", "list"]],
+    ["查看本地技能", ["local", "list"]],
+    ["安装技能", ["install", subcommand, ...rest]],
+    ["发布技能", ["publish", subcommand, ...rest]],
+    ["导入技能", ["import", subcommand, ...rest]],
+    ["批量导入", ["import-all", subcommand, ...rest]],
+    ["打包技能", ["archive", "build", subcommand, ...rest]],
+    ["生成安装包", ["package", "self", "build"]],
+    ["发布安装包", ["package", "self", "publish"]],
+    ["同步技能", ["sync", subcommand, ...rest].filter(Boolean)],
+    ["压缩包同步", ["sync", "archive", subcommand, ...rest].filter(Boolean)]
+  ]);
+
+  if (aliases.has(phrase)) {
+    return aliases.get(phrase);
+  }
+
+  if (aliases.has(command)) {
+    return aliases.get(command);
+  }
+
+  return args;
+}
+
 async function main() {
-  const args = process.argv.slice(2);
+  const args = normalizeArgs(process.argv.slice(2));
   const [command, subcommand, ...rest] = args;
 
   if (!command || command === "--help" || command === "-h") {

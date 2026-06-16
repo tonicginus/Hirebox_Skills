@@ -10,7 +10,7 @@
     "start": "node ./src/index.js",
     "init": "node ./src/index.js init",
     "list": "node ./src/index.js list",
-    "package:self": "node ./src/index.js package self build",
-    "package:self:publish": "node ./src/index.js package self publish"
+    "package:self": "node ./src/index.js 生成安装包",
+    "package:self:publish": "node ./src/index.js 发布安装包"
   }
 }

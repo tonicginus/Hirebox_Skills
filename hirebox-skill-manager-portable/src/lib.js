@@ -4,6 +4,7 @@ import {
   mkdir,
   readFile,
   readdir,
+  rmdir,
   rm,
   stat,
   writeFile
@@ -21,12 +22,11 @@ const REPO_DIR = "Hirebox_Skills";
 const INDEX_FILE = "skills-index.json";
 const SKILLS_DIRNAME = "skills";
 const PACKAGES_DIRNAME = "packages";
-const TOOLS_DIRNAME = "tools";
 const PORTABLE_PACKAGE_NAME = "hirebox-skill-manager-portable";
 
 const defaultConfig = {
   github: {
-    repository: "https://github.com/Hirebox/Hirebox_Skills.git",
+    repository: "https://github.com/tonicginus/Hirebox_Skills.git",
     branch: "main"
   },
   localRepoDir: path.resolve(process.cwd(), APP_DIR, REPO_DIR),
@@ -266,37 +266,41 @@ export async function buildPortablePackage(config) {
     }
   }
 
-  await writeFile(
-    path.join(portableDir, "start.cmd"),
-    "@echo off\r\nnode \"%~dp0src\\index.js\" %*\r\n",
-    "utf8"
-  );
-  await writeFile(
-    path.join(portableDir, "start.ps1"),
-    "node \"$PSScriptRoot\\src\\index.js\" $args\n",
-    "utf8"
-  );
+  await writeFile(path.join(portableDir, "hirebox.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" %*\r\n", "utf8");
+  await writeFile(path.join(portableDir, "hirebox.ps1"), "node \"$PSScriptRoot\\src\\index.js\" $args\n", "utf8");
+  await writeFile(path.join(portableDir, "初始化.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 初始化\r\n", "utf8");
+  await writeFile(path.join(portableDir, "查看云端技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 查看云端技能\r\n", "utf8");
+  await writeFile(path.join(portableDir, "查看本地技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 查看本地技能\r\n", "utf8");
+  await writeFile(path.join(portableDir, "同步技能.cmd"), "@echo off\r\nnode \"%~dp0src\\index.js\" 同步技能\r\n", "utf8");
   await writeFile(
     path.join(portableDir, "QUICKSTART.md"),
     [
-      "# Hirebox Skill Manager Portable",
+      "# Hirebox Skill Manager",
       "",
-      "## Requirements",
+      "## 环境要求",
       "",
-      "- Node.js installed and available in PATH",
+      "- 电脑已安装 Node.js",
       "",
-      "## Quick Start",
+      "## 常用命令",
       "",
       "```powershell",
-      ".\\start.cmd init",
-      ".\\start.cmd remote list",
-      ".\\start.cmd sync",
+      ".\\初始化.cmd",
+      ".\\查看云端技能.cmd",
+      ".\\同步技能.cmd",
       "```",
       "",
-      "You can also run:",
+      "需要指定技能名称或平台时，使用主命令：",
       "",
       "```powershell",
-      "node .\\src\\index.js --help",
+      ".\\hirebox.cmd 安装技能 seo-writer codex",
+      ".\\hirebox.cmd 发布技能 C:\\skills\\seo-writer",
+      "```",
+      "",
+      "## 安装包维护",
+      "",
+      "```powershell",
+      ".\\hirebox.cmd 生成安装包",
+      ".\\hirebox.cmd 发布安装包",
       "```"
     ].join("\n"),
     "utf8"
@@ -314,20 +318,25 @@ export async function publishPortablePackage(config) {
   const distRoot = path.resolve(process.cwd(), "dist");
   const portableDir = path.join(distRoot, PORTABLE_PACKAGE_NAME);
   const archivePath = path.join(distRoot, `${PORTABLE_PACKAGE_NAME}.zip`);
-  const repoToolDir = path.join(config.localRepoDir, TOOLS_DIRNAME, PORTABLE_PACKAGE_NAME);
+  const repoPackageDir = path.join(config.localRepoDir, PORTABLE_PACKAGE_NAME);
+  const legacyToolDir = path.join(config.localRepoDir, "tools", PORTABLE_PACKAGE_NAME);
 
-  await rm(repoToolDir, { recursive: true, force: true });
-  await mkdir(repoToolDir, { recursive: true });
-  await cp(portableDir, path.join(repoToolDir, PORTABLE_PACKAGE_NAME), { recursive: true });
-  await cp(archivePath, path.join(repoToolDir, `${PORTABLE_PACKAGE_NAME}.zip`));
+  await rm(legacyToolDir, { recursive: true, force: true });
+  await removeDirectoryIfEmpty(path.dirname(legacyToolDir));
+  await rm(repoPackageDir, { recursive: true, force: true });
+  await rm(path.join(config.localRepoDir, `${PORTABLE_PACKAGE_NAME}.zip`), { force: true });
+  await rm(path.join(config.localRepoDir, "tool.json"), { force: true });
 
-  await writeJson(path.join(repoToolDir, "tool.json"), {
+  await cp(portableDir, repoPackageDir, { recursive: true });
+  await cp(archivePath, path.join(config.localRepoDir, `${PORTABLE_PACKAGE_NAME}.zip`));
+
+  await writeJson(path.join(config.localRepoDir, "tool.json"), {
     name: PORTABLE_PACKAGE_NAME,
     version: await readProjectVersion(),
     description: "Portable Hirebox Skill Manager package. Download and run with Node.js installed.",
     entrypoints: {
-      windowsCmd: `${PORTABLE_PACKAGE_NAME}\\start.cmd`,
-      powershell: `${PORTABLE_PACKAGE_NAME}\\start.ps1`,
+      windowsCmd: `${PORTABLE_PACKAGE_NAME}\\hirebox.cmd`,
+      powershell: `${PORTABLE_PACKAGE_NAME}\\hirebox.ps1`,
       node: `${PORTABLE_PACKAGE_NAME}\\src\\index.js`
     },
     requirements: ["Node.js"],
@@ -338,7 +347,7 @@ export async function publishPortablePackage(config) {
   });
 
   await commitAndPushRepo(config, "Publish portable Hirebox Skill Manager package");
-  console.log(`Published portable package to ${path.join(config.localRepoDir, TOOLS_DIRNAME, PORTABLE_PACKAGE_NAME)}`);
+  console.log(`Published portable package to ${repoPackageDir}`);
 }
 
 async function installSkillWithDependencies(config, skill, targetPlatform, options, remoteIndex, installed) {
@@ -554,7 +563,6 @@ function getArchiveAbsolutePath(config, archiveRelativePath, skillName, version)
 async function ensureRepoLayout(repoDir) {
   await mkdir(path.join(repoDir, SKILLS_DIRNAME), { recursive: true });
   await mkdir(path.join(repoDir, PACKAGES_DIRNAME), { recursive: true });
-  await mkdir(path.join(repoDir, TOOLS_DIRNAME), { recursive: true });
 }
 
 async function zipDirectory(sourceDir, archivePath) {
@@ -664,4 +672,14 @@ async function readProjectVersion() {
 
   const pkg = await readJson(packageJsonPath);
   return pkg.version || "0.1.0";
+}
+
+async function removeDirectoryIfEmpty(targetDir) {
+  try {
+    await rmdir(targetDir);
+  } catch (error) {
+    if (error.code !== "ENOENT" && error.code !== "ENOTEMPTY") {
+      throw error;
+    }
+  }
 }
