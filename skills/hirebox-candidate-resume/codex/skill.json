@@ -1,0 +1,12 @@
+{
+  "name": "hirebox-candidate-resume",
+  "version": "0.1.2",
+  "description": "Generate a Hirebox candidate resume from any uploaded original candidate resume file such as PDF, DOCX, image, spreadsheet, or pasted text. Use when the user asks to standardize a candidate resume in the Hirebox format, produce DOCX/PDF candidate resume deliverables, or run the Hirebox resume fact-consistency check.",
+  "platforms": [
+    "codex"
+  ],
+  "dependencies": [],
+  "hirebox": true,
+  "sourceSkillVersion": "0.1.2",
+  "sourcePlatform": "codex"
+}

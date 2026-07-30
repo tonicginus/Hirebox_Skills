@@ -1,0 +1,7 @@
+interface:
+  display_name: "Hirebox Recruitment and Headhunting Contract"
+  short_description: "Create Hirebox recruitment and headhunting contracts"
+  icon_large: "./assets/preview.png"
+  default_prompt: "Use $hirebox-recruitment-headhunting-contract to create a Thai-Chinese recruitment or headhunting service contract from this template."
+policy:
+  allow_implicit_invocation: true

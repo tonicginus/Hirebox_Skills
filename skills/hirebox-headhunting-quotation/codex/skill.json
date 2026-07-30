@@ -1,0 +1,12 @@
+{
+  "name": "hirebox-headhunting-quotation",
+  "version": "0.1.1",
+  "description": "Generate bilingual Hirebox headhunting service quotations in DOCX and PDF for different clients, positions, and work regions. Use when a user requests a Hirebox headhunting quotation, needs a quotation from a role requirement, provides a salary budget, or asks to estimate the applicable fee rate from current role-and-region market salary research.",
+  "platforms": [
+    "codex"
+  ],
+  "dependencies": [],
+  "hirebox": true,
+  "sourceSkillVersion": "0.1.1",
+  "sourcePlatform": "codex"
+}

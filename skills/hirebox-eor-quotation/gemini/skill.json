@@ -1,0 +1,12 @@
+{
+  "name": "hirebox-eor-quotation",
+  "version": "0.1.0",
+  "description": "Create bilingual Hirebox EOR service quotation DOCX and PDF files from the retained reference. Use when the user requests an employment-management/EOR quotation, submits client position information, or explicitly invokes $hirebox-eor-quotation. Collect the required client and position fields, calculate 15% x F and all deposit bands, and return both Word and PDF outputs.",
+  "platforms": [
+    "gemini"
+  ],
+  "dependencies": [],
+  "hirebox": true,
+  "sourceSkillVersion": "0.1.0",
+  "sourcePlatform": "codex"
+}

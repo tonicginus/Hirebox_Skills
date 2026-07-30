@@ -1,0 +1,6 @@
+interface:
+  display_name: "Hirebox Candidate Resume"
+  short_description: "Generate Hirebox candidate resumes, validation reports, and PDF files."
+  default_prompt: "Use $hirebox-candidate-resume to generate a Hirebox candidate resume from an uploaded original resume."
+policy:
+  allow_implicit_invocation: true

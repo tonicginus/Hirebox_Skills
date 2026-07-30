@@ -1,0 +1,12 @@
+{
+  "name": "hirebox-general-contract-template",
+  "version": "1.0.1",
+  "description": "Create or revise Hirebox single-language and standard business contracts from the approved general contract Word template and style specification.",
+  "platforms": [
+    "claude-code"
+  ],
+  "dependencies": [],
+  "hirebox": true,
+  "sourceSkillVersion": "1.0.1",
+  "sourcePlatform": "codex"
+}

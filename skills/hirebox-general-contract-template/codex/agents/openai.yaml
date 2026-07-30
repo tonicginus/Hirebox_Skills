@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hirebox General Contract Template"
+  short_description: "Create standard Hirebox contracts from the approved master"
+  default_prompt: "Use $hirebox-general-contract-template to create a standard Hirebox business contract from the approved master template."

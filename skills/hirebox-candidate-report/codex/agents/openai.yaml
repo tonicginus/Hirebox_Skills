@@ -1,0 +1,3 @@
+display_name: Hirebox Candidate Report
+short_description: Build Hirebox recommendation reports.
+default_prompt: Create a Hirebox talent recommendation report from the provided client job requirement and candidate resume.

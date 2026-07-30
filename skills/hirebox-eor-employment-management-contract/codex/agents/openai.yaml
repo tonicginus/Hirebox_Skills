@@ -1,0 +1,7 @@
+interface:
+  display_name: "Hirebox EOR Employment Management Contract"
+  short_description: "Create and verify Hirebox EOR employment contracts"
+  icon_large: "./assets/preview.png"
+  default_prompt: "Use $hirebox-eor-employment-management-contract to create or revise a Thai-Chinese EOR employment-management contract. Preserve all template body text unless I expressly request a change."
+policy:
+  allow_implicit_invocation: true

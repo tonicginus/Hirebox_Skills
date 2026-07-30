@@ -1,0 +1,20 @@
+{
+  "name": "hirebox-skill-manager",
+  "version": "0.1.0",
+  "description": "Hirebox Agent Skill management tool for syncing skills across Claude, Codex, Antigravity and other platforms via GitHub.",
+  "type": "module",
+  "bin": {
+    "hirebox-skill": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node ./src/index.js",
+    "init": "node ./src/index.js init",
+    "list": "node ./src/index.js list-skills",
+    "validate": "node ./src/index.js validate-library",
+    "test": "node --test",
+    "sync:codex": "node ./src/index.js sync-codex-skills",
+    "sync:all-platforms": "node ./src/index.js sync-all-platform-skills",
+    "sync": "node ./src/index.js sync-skills",
+    "package:self": "node ./src/index.js build-portable-package"
+  }
+}

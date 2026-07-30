@@ -1,0 +1,7 @@
+interface:
+  display_name: "Hirebox Project Quotation"
+  short_description: "Combine service modules into bilingual project quotations"
+  default_prompt: "Use $hirebox-project-quotation to combine service quotes into one integrated project quotation."
+
+policy:
+  allow_implicit_invocation: true

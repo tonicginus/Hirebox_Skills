@@ -1,0 +1,7 @@
+interface:
+  display_name: "Hirebox EOR Quotation"
+  short_description: "Create bilingual Hirebox EOR service quotations"
+  icon_large: "./assets/preview.png"
+  default_prompt: "Use $hirebox-eor-quotation to create a new Hirebox EOR service quotation."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "templateFamily": "Hirebox Thai-Chinese employment-management EOR service contract",
+  "authoritativeProjectTemplate": "海钡合同撰写/海钡人力雇佣管理EOR服务合同模板.docx",
+  "requiredAnchors": [
+    "ข้อมูลคู่สัญญา | 当事方基本信息",
+    "คำสั่งซื้อนี้ใช้สำหรับการที่ผู้รับบริการจัดซื้อบริการบริหารการจ้างงาน/การว่าจ้าง (EOR) จากผู้ให้บริการตามสัญญากรอบ。",
+    "本订单适用于甲方依据框架协议向乙方采购的雇佣/聘用（EOR）管理服务。",
+    "ข้อที่ 1 ขอบเขตของบริการ / 第一条 服务范围",
+    "ข้อที่ 2 ค่าบริการและการชำระเงิน / 第二条 费用及支付",
+    "ข้อที่ 5 ระยะเวลาการให้บริการ / 第五条 服务期限",
+    "ข้อที่ 6 การยุติคำสั่งซื้อ / 第六条 订单的终止",
+    "ข้อที่ 7 การปฏิบัติตามข้อกำหนดด้านข้อมูล / 第七条 数据合规",
+    "ข้อที่ 8 ข้อกำหนดต่อต้านการให้สินบน / 第八条 反贿赂条款",
+    "ข้อที่ 9 อื่น ๆ / 第九条 其他",
+    "การลงนามโดยผู้มีอำนาจ | 授权签署",
+    "เอกสารแนบ 1: หลักฐานคุณสมบัติของฝ่าย ก / 附件一：甲方主体资格证明",
+    "เอกสารแนบ 2: หลักฐานคุณสมบัติของฝ่าย ข / 附件二：乙方主体资格证明"
+  ],
+  "fontPolicy": {
+    "thai": "Leelawadee UI",
+    "chinese": "SimSun",
+    "mixedText": "Use separate Thai and Chinese runs whenever direct run formatting is applied."
+  },
+  "layoutRequirements": {
+    "signaturePageStandalone": true,
+    "signatureTableRows": 6,
+    "signatureTableColumns": 2,
+    "appendixPagesStandalone": true,
+    "renderEveryPage": true
+  },
+  "partyEvidence": {
+    "requiredWhenSourceProvided": true,
+    "appendices": [
+      {"party": "A", "anchor": "เอกสารแนบ 1: หลักฐานคุณสมบัติของฝ่าย ก / 附件一：甲方主体资格证明", "sourcePage": 1},
+      {"party": "B", "anchor": "เอกสารแนบ 2: หลักฐานคุณสมบัติของฝ่าย ข / 附件二：乙方主体资格证明", "sourcePage": 1}
+    ],
+    "sourceTypes": ["DBD/company-registration PDF", "DBD/company-registration image"],
+    "deliveryRule": "Embed a complete, legible, proportionally scaled first source page as an image in the matching party appendix.",
+    "visualChecks": ["complete page visible", "correct orientation", "no crop or stretch", "not split across pages", "party section matches source party"]
+  }
+}

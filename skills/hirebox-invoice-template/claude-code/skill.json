@@ -1,0 +1,12 @@
+{
+  "name": "hirebox-invoice-template",
+  "version": "0.1.0",
+  "description": "Generate Hirebox service invoice DOCX files from the fixed Word template. Use when the user gives buyer/recipient invoice information and service fee line items, asks to issue an invoice, create a Hirebox invoice, reuse the Hirebox invoice template, or produce a Word service invoice with automatic subtotal, VAT 7%, and grand total.",
+  "platforms": [
+    "claude-code"
+  ],
+  "dependencies": [],
+  "hirebox": true,
+  "sourceSkillVersion": "0.1.0",
+  "sourcePlatform": "codex"
+}

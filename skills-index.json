@@ -1,0 +1,462 @@
+[
+  {
+    "name": "hirebox-candidate-report",
+    "version": "0.1.2",
+    "description": "Create professional Hirebox candidate recommendation reports from a client job requirement and a candidate resume. Use when the user asks to generate, revise, or standardize a candidate recommendation report based on two core inputs: customer position requirements and candidate resume, especially for finance, tax, audit, consulting, manufacturing, or cross-border roles.",
+    "platforms": [
+      "codex",
+      "claude-code",
+      "gemini"
+    ],
+    "dependencies": [],
+    "sourcePlatform": "codex",
+    "archive": {
+      "version": "0.1.2",
+      "path": "packages/hirebox-candidate-report/hirebox-candidate-report-0.1.2-codex.zip",
+      "format": "zip",
+      "contentHash": "fd8fc3ea1174947047087d5805f69bcebad6d65ea9d6d2b82428c5024f1ac118"
+    },
+    "updatedAt": "2026-07-10T09:29:32.463Z",
+    "contentHash": "848c55f3e432e52a4c05d7b2939b310fc0a8c4c3a6b5d4055f623ce1ae20feb8",
+    "sourceSkillVersion": "0.1.2",
+    "source": {
+      "repository": "Codex_Sync",
+      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "contentHash": "848c55f3e432e52a4c05d7b2939b310fc0a8c4c3a6b5d4055f623ce1ae20feb8"
+    },
+    "platformPackages": {
+      "codex": {
+        "version": "0.1.2",
+        "path": "packages/hirebox-candidate-report/hirebox-candidate-report-0.1.2-codex.zip",
+        "format": "zip",
+        "contentHash": "fd8fc3ea1174947047087d5805f69bcebad6d65ea9d6d2b82428c5024f1ac118"
+      },
+      "claude-code": {
+        "version": "0.1.2",
+        "path": "packages/hirebox-candidate-report/hirebox-candidate-report-0.1.2-claude-code.zip",
+        "format": "zip",
+        "contentHash": "84c280555420988e4114822850b6cf309b5787f255113557e4f8f99f9b3ce3bc"
+      },
+      "gemini": {
+        "version": "0.1.2",
+        "path": "packages/hirebox-candidate-report/hirebox-candidate-report-0.1.2-gemini.zip",
+        "format": "zip",
+        "contentHash": "873ec8460e9d9984b118f9ffea69fd935ddc062cbe5bfadf9833ac70821b9399"
+      }
+    }
+  },
+  {
+    "name": "hirebox-candidate-resume",
+    "version": "0.1.2",
+    "description": "Generate a Hirebox candidate resume from any uploaded original candidate resume file such as PDF, DOCX, image, spreadsheet, or pasted text. Use when the user asks to standardize a candidate resume in the Hirebox format, produce DOCX/PDF candidate resume deliverables, or run the Hirebox resume fact-consistency check.",
+    "platforms": [
+      "codex",
+      "claude-code",
+      "gemini"
+    ],
+    "dependencies": [],
+    "sourcePlatform": "codex",
+    "archive": {
+      "version": "0.1.2",
+      "path": "packages/hirebox-candidate-resume/hirebox-candidate-resume-0.1.2-codex.zip",
+      "format": "zip",
+      "contentHash": "fb9bc66bb50e496f162d97d13d0239fce519c55686ee6125574c1fa8356eba0e"
+    },
+    "updatedAt": "2026-07-10T09:29:33.871Z",
+    "contentHash": "defe38d403fbb11f240913b23b0cddce491c2921496db392069d7e0a07a114e4",
+    "sourceSkillVersion": "0.1.2",
+    "source": {
+      "repository": "Codex_Sync",
+      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "contentHash": "defe38d403fbb11f240913b23b0cddce491c2921496db392069d7e0a07a114e4"
+    },
+    "platformPackages": {
+      "codex": {
+        "version": "0.1.2",
+        "path": "packages/hirebox-candidate-resume/hirebox-candidate-resume-0.1.2-codex.zip",
+        "format": "zip",
+        "contentHash": "fb9bc66bb50e496f162d97d13d0239fce519c55686ee6125574c1fa8356eba0e"
+      },
+      "claude-code": {
+        "version": "0.1.2",
+        "path": "packages/hirebox-candidate-resume/hirebox-candidate-resume-0.1.2-claude-code.zip",
+        "format": "zip",
+        "contentHash": "6225adbc3bdbfba848d5a1f648411a7f475b65f5c1886684475eac34ec3db642"
+      },
+      "gemini": {
+        "version": "0.1.2",
+        "path": "packages/hirebox-candidate-resume/hirebox-candidate-resume-0.1.2-gemini.zip",
+        "format": "zip",
+        "contentHash": "b4b156c8c1ce7071f79adbfe650823cfb1b79f2d1136c8e4b47060dfbf51602f"
+      }
+    }
+  },
+  {
+    "name": "hirebox-eor-employment-management-contract",
+    "version": "0.2.0",
+    "description": "Create or revise a Hirebox Thai-Chinese employment-management (EOR) service contract from the retained Word template. Use when the user selects this contract template, requests a Hirebox EOR employment-management contract, or invokes $hirebox-eor-employment-management-contract.",
+    "platforms": [
+      "codex",
+      "claude-code",
+      "gemini"
+    ],
+    "dependencies": [],
+    "sourcePlatform": null,
+    "archive": {
+      "version": "0.2.0",
+      "path": "packages/hirebox-eor-employment-management-contract/hirebox-eor-employment-management-contract-0.2.0-codex.zip",
+      "format": "zip",
+      "contentHash": "d6fa3f70a742f4d9e4f59d9de48546ad5425ce68dbeb664e391ad861570e4c9d"
+    },
+    "updatedAt": "2026-07-24T05:52:02.344Z",
+    "contentHash": "9be0541f674a3fe9cf38766a4fb0a2a0805231f9375ab6a197404596cccfa40c",
+    "sourceSkillVersion": "0.2.0",
+    "source": {
+      "repository": "Codex_Sync",
+      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "contentHash": "9be0541f674a3fe9cf38766a4fb0a2a0805231f9375ab6a197404596cccfa40c"
+    },
+    "platformPackages": {
+      "codex": {
+        "version": "0.2.0",
+        "path": "packages/hirebox-eor-employment-management-contract/hirebox-eor-employment-management-contract-0.2.0-codex.zip",
+        "format": "zip",
+        "contentHash": "d6fa3f70a742f4d9e4f59d9de48546ad5425ce68dbeb664e391ad861570e4c9d"
+      },
+      "claude-code": {
+        "version": "0.2.0",
+        "path": "packages/hirebox-eor-employment-management-contract/hirebox-eor-employment-management-contract-0.2.0-claude-code.zip",
+        "format": "zip",
+        "contentHash": "972b3eae2c684db15d795b5c3cb95573be4df24c5ed9d3296a53a6203854c1d9"
+      },
+      "gemini": {
+        "version": "0.2.0",
+        "path": "packages/hirebox-eor-employment-management-contract/hirebox-eor-employment-management-contract-0.2.0-gemini.zip",
+        "format": "zip",
+        "contentHash": "1a37c0dfbd4e45d59207e94e23a9e05cd5e46c2234dfd79c2e5daae9d16c7b54"
+      }
+    }
+  },
+  {
+    "name": "hirebox-eor-quotation",
+    "version": "0.1.0",
+    "description": "Create bilingual Hirebox EOR service quotation DOCX and PDF files from the retained reference. Use when the user requests an employment-management/EOR quotation, submits client position information, or explicitly invokes $hirebox-eor-quotation. Collect the required client and position fields, calculate 15% x F and all deposit bands, and return both Word and PDF outputs.",
+    "platforms": [
+      "codex",
+      "claude-code",
+      "gemini"
+    ],
+    "dependencies": [],
+    "sourcePlatform": "codex",
+    "archive": {
+      "version": "0.1.0",
+      "path": "packages/hirebox-eor-quotation/hirebox-eor-quotation-0.1.0-codex.zip",
+      "format": "zip",
+      "contentHash": "389d783e1272c56870836bb1c403e66c060ba1f1be16be81cadca737c505ffc0"
+    },
+    "updatedAt": "2026-07-17T14:32:00.275Z",
+    "contentHash": "a6409a297f72cb129c683db958b1cdd123ebca81a0382c194381ba2b84401511",
+    "sourceSkillVersion": "0.1.0",
+    "source": {
+      "repository": "Codex_Sync",
+      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "contentHash": "a6409a297f72cb129c683db958b1cdd123ebca81a0382c194381ba2b84401511"
+    },
+    "platformPackages": {
+      "codex": {
+        "version": "0.1.0",
+        "path": "packages/hirebox-eor-quotation/hirebox-eor-quotation-0.1.0-codex.zip",
+        "format": "zip",
+        "contentHash": "389d783e1272c56870836bb1c403e66c060ba1f1be16be81cadca737c505ffc0"
+      },
+      "claude-code": {
+        "version": "0.1.0",
+        "path": "packages/hirebox-eor-quotation/hirebox-eor-quotation-0.1.0-claude-code.zip",
+        "format": "zip",
+        "contentHash": "678d782d7f19041e5b6c18b55a8dc95c1055ce7568d94b71a9a4bb437619dda4"
+      },
+      "gemini": {
+        "version": "0.1.0",
+        "path": "packages/hirebox-eor-quotation/hirebox-eor-quotation-0.1.0-gemini.zip",
+        "format": "zip",
+        "contentHash": "00b14b59a48f97c320a929ffbd1b44e89009dce78e70a5af5f52912998da404d"
+      }
+    }
+  },
+  {
+    "name": "hirebox-general-contract-template",
+    "version": "1.0.1",
+    "description": "Create or revise Hirebox single-language and standard business contracts from the approved general contract Word template and style specification.",
+    "platforms": [
+      "codex",
+      "claude-code",
+      "gemini"
+    ],
+    "dependencies": [],
+    "sourcePlatform": null,
+    "archive": {
+      "version": "1.0.1",
+      "path": "packages/hirebox-general-contract-template/hirebox-general-contract-template-1.0.1-codex.zip",
+      "format": "zip",
+      "contentHash": "9b46e391ac4d39d7fc7ee91c910b075f792d4ffa0bef42cca36dd19697376ba2"
+    },
+    "updatedAt": "2026-07-19T20:06:07.507Z",
+    "contentHash": "90f192b21e3a95f08e29df154eb9cac6f37ad96297df1e3f4a4a99dc6a0c94bd",
+    "sourceSkillVersion": "1.0.1",
+    "source": {
+      "repository": "Codex_Sync",
+      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "contentHash": "90f192b21e3a95f08e29df154eb9cac6f37ad96297df1e3f4a4a99dc6a0c94bd"
+    },
+    "platformPackages": {
+      "codex": {
+        "version": "1.0.1",
+        "path": "packages/hirebox-general-contract-template/hirebox-general-contract-template-1.0.1-codex.zip",
+        "format": "zip",
+        "contentHash": "9b46e391ac4d39d7fc7ee91c910b075f792d4ffa0bef42cca36dd19697376ba2"
+      },
+      "claude-code": {
+        "version": "1.0.1",
+        "path": "packages/hirebox-general-contract-template/hirebox-general-contract-template-1.0.1-claude-code.zip",
+        "format": "zip",
+        "contentHash": "c8d29ab2a361894bc8e15623f376a14b64bdc26bfb0330a76c867d7aec915544"
+      },
+      "gemini": {
+        "version": "1.0.1",
+        "path": "packages/hirebox-general-contract-template/hirebox-general-contract-template-1.0.1-gemini.zip",
+        "format": "zip",
+        "contentHash": "e67b9fad5848eb76bdfae64ba1ac92d4c0183f7d15a26c592887d79dceb6c57e"
+      }
+    }
+  },
+  {
+    "name": "hirebox-headhunting-quotation",
+    "version": "0.1.1",
+    "description": "Generate bilingual Hirebox headhunting service quotations in DOCX and PDF for different clients, positions, and work regions. Use when a user requests a Hirebox headhunting quotation, needs a quotation from a role requirement, provides a salary budget, or asks to estimate the applicable fee rate from current role-and-region market salary research.",
+    "platforms": [
+      "codex",
+      "claude-code",
+      "gemini"
+    ],
+    "dependencies": [],
+    "sourcePlatform": "codex",
+    "archive": {
+      "version": "0.1.1",
+      "path": "packages/hirebox-headhunting-quotation/hirebox-headhunting-quotation-0.1.1-codex.zip",
+      "format": "zip",
+      "contentHash": "b56ff950b270b8f04374993afebd8b03671bc86c80a3c4cdd3c604ef5129e7a6"
+    },
+    "updatedAt": "2026-07-16T14:20:27.917Z",
+    "contentHash": "7d887e82dd6f592cab4a272ac2b4ff73f0670d6b2ba41bd5ff80be41cb2fae67",
+    "sourceSkillVersion": "0.1.1",
+    "source": {
+      "repository": "Codex_Sync",
+      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "contentHash": "7d887e82dd6f592cab4a272ac2b4ff73f0670d6b2ba41bd5ff80be41cb2fae67"
+    },
+    "platformPackages": {
+      "codex": {
+        "version": "0.1.1",
+        "path": "packages/hirebox-headhunting-quotation/hirebox-headhunting-quotation-0.1.1-codex.zip",
+        "format": "zip",
+        "contentHash": "b56ff950b270b8f04374993afebd8b03671bc86c80a3c4cdd3c604ef5129e7a6"
+      },
+      "claude-code": {
+        "version": "0.1.1",
+        "path": "packages/hirebox-headhunting-quotation/hirebox-headhunting-quotation-0.1.1-claude-code.zip",
+        "format": "zip",
+        "contentHash": "fac165860a7312fc590662e47c5189df67f180a4fe546552925cbfc389639f21"
+      },
+      "gemini": {
+        "version": "0.1.1",
+        "path": "packages/hirebox-headhunting-quotation/hirebox-headhunting-quotation-0.1.1-gemini.zip",
+        "format": "zip",
+        "contentHash": "fd21aff2ad187ad0675d76459e1a39cea0275531402f511a5a9856c4d9491c48"
+      }
+    }
+  },
+  {
+    "name": "hirebox-invoice-template",
+    "version": "0.1.0",
+    "description": "Generate Hirebox service invoice DOCX files from the fixed Word template. Use when the user gives buyer/recipient invoice information and service fee line items, asks to issue an invoice, create a Hirebox invoice, reuse the Hirebox invoice template, or produce a Word service invoice with automatic subtotal, VAT 7%, and grand total.",
+    "platforms": [
+      "codex",
+      "claude-code",
+      "gemini"
+    ],
+    "dependencies": [],
+    "sourcePlatform": null,
+    "archive": {
+      "version": "0.1.0",
+      "path": "packages/hirebox-invoice-template/hirebox-invoice-template-0.1.0-codex.zip",
+      "format": "zip",
+      "contentHash": "229fa6deabea2034a0660a8c491fcdaedb0f6c2bfbb65eb8329781b89325b376"
+    },
+    "updatedAt": "2026-07-10T09:29:45.473Z",
+    "contentHash": "c804df89bbd58c2d50c598a794ce50544f9ed0c5a5bd9dd59efbd4b5cc17d529",
+    "sourceSkillVersion": "0.1.0",
+    "source": {
+      "repository": "Codex_Sync",
+      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "contentHash": "c804df89bbd58c2d50c598a794ce50544f9ed0c5a5bd9dd59efbd4b5cc17d529"
+    },
+    "platformPackages": {
+      "codex": {
+        "version": "0.1.0",
+        "path": "packages/hirebox-invoice-template/hirebox-invoice-template-0.1.0-codex.zip",
+        "format": "zip",
+        "contentHash": "229fa6deabea2034a0660a8c491fcdaedb0f6c2bfbb65eb8329781b89325b376"
+      },
+      "claude-code": {
+        "version": "0.1.0",
+        "path": "packages/hirebox-invoice-template/hirebox-invoice-template-0.1.0-claude-code.zip",
+        "format": "zip",
+        "contentHash": "e3d59747a2c99dddca8e014751f5b979239fd66d2ae98765109c3d6a36bddce5"
+      },
+      "gemini": {
+        "version": "0.1.0",
+        "path": "packages/hirebox-invoice-template/hirebox-invoice-template-0.1.0-gemini.zip",
+        "format": "zip",
+        "contentHash": "917e6ab01a6995a2a5e6de925849b9190365c1cc400ff7a2456327661f4971a0"
+      }
+    }
+  },
+  {
+    "name": "hirebox-multilingual-contract-template",
+    "version": "0.3.0",
+    "description": "Create or revise Hirebox bilingual and multilingual contracts from the approved general contract Word template and language-layout reference.",
+    "platforms": [
+      "codex",
+      "claude-code",
+      "gemini"
+    ],
+    "dependencies": [],
+    "sourcePlatform": null,
+    "archive": {
+      "version": "0.3.0",
+      "path": "packages/hirebox-multilingual-contract-template/hirebox-multilingual-contract-template-0.3.0-codex.zip",
+      "format": "zip",
+      "contentHash": "b63ac38fa04016a52436fc7cfbe95c4a80d6f8d128e94f8254892886f09b44be"
+    },
+    "updatedAt": "2026-07-19T20:06:11.315Z",
+    "contentHash": "5c726a84a3f7ce817c2100f2988e903fe09003898c1697bc464e942faece7838",
+    "sourceSkillVersion": "0.3.0",
+    "source": {
+      "repository": "Codex_Sync",
+      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "contentHash": "5c726a84a3f7ce817c2100f2988e903fe09003898c1697bc464e942faece7838"
+    },
+    "platformPackages": {
+      "codex": {
+        "version": "0.3.0",
+        "path": "packages/hirebox-multilingual-contract-template/hirebox-multilingual-contract-template-0.3.0-codex.zip",
+        "format": "zip",
+        "contentHash": "b63ac38fa04016a52436fc7cfbe95c4a80d6f8d128e94f8254892886f09b44be"
+      },
+      "claude-code": {
+        "version": "0.3.0",
+        "path": "packages/hirebox-multilingual-contract-template/hirebox-multilingual-contract-template-0.3.0-claude-code.zip",
+        "format": "zip",
+        "contentHash": "70e0f9ca72baaa182430190ca43bc16227d336f99aa296c371e911d943a8d76d"
+      },
+      "gemini": {
+        "version": "0.3.0",
+        "path": "packages/hirebox-multilingual-contract-template/hirebox-multilingual-contract-template-0.3.0-gemini.zip",
+        "format": "zip",
+        "contentHash": "1fb584e00da8795b0b2d9657fd723291288df7057b0d63239e9db4ae3a50dd2f"
+      }
+    }
+  },
+  {
+    "name": "hirebox-project-quotation",
+    "version": "0.1.0",
+    "description": "Generate bilingual Hirebox project-wide commercial quotations from one or more service quotes, using the retained branded Word template. Use when the user asks to combine EOR, recruitment, visa, BPO, payroll, outsourcing, or other service modules into one integrated quotation with a consolidated summary and independently separated project appendices, delivered as DOCX and PDF.",
+    "platforms": [
+      "codex",
+      "claude-code",
+      "gemini"
+    ],
+    "dependencies": [],
+    "sourcePlatform": "codex",
+    "archive": {
+      "version": "0.1.0",
+      "path": "packages/hirebox-project-quotation/hirebox-project-quotation-0.1.0-codex.zip",
+      "format": "zip",
+      "contentHash": "d26f4fb2e1c7f060c5b8466e4970d57ef9b2685942fc9ed033b4a41d706fb8ef"
+    },
+    "updatedAt": "2026-07-20T06:08:17.407Z",
+    "contentHash": "7483c8bff82ff022dc3d99f7f21c293fa9e9eb6e79e0dd9b45f136a5bd696561",
+    "sourceSkillVersion": "0.1.0",
+    "source": {
+      "repository": "Codex_Sync",
+      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "contentHash": "7483c8bff82ff022dc3d99f7f21c293fa9e9eb6e79e0dd9b45f136a5bd696561"
+    },
+    "platformPackages": {
+      "codex": {
+        "version": "0.1.0",
+        "path": "packages/hirebox-project-quotation/hirebox-project-quotation-0.1.0-codex.zip",
+        "format": "zip",
+        "contentHash": "d26f4fb2e1c7f060c5b8466e4970d57ef9b2685942fc9ed033b4a41d706fb8ef"
+      },
+      "claude-code": {
+        "version": "0.1.0",
+        "path": "packages/hirebox-project-quotation/hirebox-project-quotation-0.1.0-claude-code.zip",
+        "format": "zip",
+        "contentHash": "de831fb696ddde588a893ecb3a9c5948e0186201a81e85a7400b79f03adbbd21"
+      },
+      "gemini": {
+        "version": "0.1.0",
+        "path": "packages/hirebox-project-quotation/hirebox-project-quotation-0.1.0-gemini.zip",
+        "format": "zip",
+        "contentHash": "bf134a7ec11261687e0ddbe87cf325b22c0a8dae1e5aec2a54f3f795b3752ccc"
+      }
+    }
+  },
+  {
+    "name": "hirebox-recruitment-headhunting-contract",
+    "version": "0.2.0",
+    "description": "Create a Hirebox Thai-Chinese recruitment and headhunting service contract from the retained Word template. Use when the user requests a Hirebox recruitment or headhunting contract, selects this contract template, or invokes $hirebox-recruitment-headhunting-contract.",
+    "platforms": [
+      "codex",
+      "claude-code",
+      "gemini"
+    ],
+    "dependencies": [],
+    "sourcePlatform": null,
+    "archive": {
+      "version": "0.2.0",
+      "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.0-codex.zip",
+      "format": "zip",
+      "contentHash": "6c69e5a687ca4fd92a741781af89eb1fe4a9a90200085150f88005d9f12b4017"
+    },
+    "updatedAt": "2026-07-24T05:52:05.010Z",
+    "contentHash": "0c2f99e0d071845a19c190b76343944259db00c83b34bb54ba3b6422c81d4f5d",
+    "sourceSkillVersion": "0.2.0",
+    "source": {
+      "repository": "Codex_Sync",
+      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "contentHash": "0c2f99e0d071845a19c190b76343944259db00c83b34bb54ba3b6422c81d4f5d"
+    },
+    "platformPackages": {
+      "codex": {
+        "version": "0.2.0",
+        "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.0-codex.zip",
+        "format": "zip",
+        "contentHash": "6c69e5a687ca4fd92a741781af89eb1fe4a9a90200085150f88005d9f12b4017"
+      },
+      "claude-code": {
+        "version": "0.2.0",
+        "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.0-claude-code.zip",
+        "format": "zip",
+        "contentHash": "13be51ef36f0225131fbe306309cb96a10495f466ad13066f660832d16c1f518"
+      },
+      "gemini": {
+        "version": "0.2.0",
+        "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.0-gemini.zip",
+        "format": "zip",
+        "contentHash": "d98dfb2ca5b16828f672598e4796d1072a2f6a05311ff0fcc529273bbe8f00b5"
+      }
+    }
+  }
+]

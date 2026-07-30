@@ -1,0 +1,12 @@
+{
+  "name": "hirebox-project-quotation",
+  "version": "0.1.0",
+  "description": "Generate bilingual Hirebox project-wide commercial quotations from one or more service quotes, using the retained branded Word template. Use when the user asks to combine EOR, recruitment, visa, BPO, payroll, outsourcing, or other service modules into one integrated quotation with a consolidated summary and independently separated project appendices, delivered as DOCX and PDF.",
+  "platforms": [
+    "codex"
+  ],
+  "dependencies": [],
+  "hirebox": true,
+  "sourceSkillVersion": "0.1.0",
+  "sourcePlatform": "codex"
+}

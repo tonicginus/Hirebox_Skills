@@ -1,0 +1,12 @@
+{
+  "name": "hirebox-candidate-report",
+  "version": "0.1.2",
+  "description": "Create professional Hirebox candidate recommendation reports from a client job requirement and a candidate resume. Use when the user asks to generate, revise, or standardize a candidate recommendation report based on two core inputs: customer position requirements and candidate resume, especially for finance, tax, audit, consulting, manufacturing, or cross-border roles.",
+  "platforms": [
+    "gemini"
+  ],
+  "dependencies": [],
+  "hirebox": true,
+  "sourceSkillVersion": "0.1.2",
+  "sourcePlatform": "codex"
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Hirebox Multilingual Contract Template"
+  short_description: "Create Hirebox bilingual and multilingual contract documents."
+  icon_large: "./assets/preview.png"
+  default_prompt: "Use $hirebox-multilingual-contract-template to create a Hirebox bilingual or multilingual contract from my approved content."
+policy:
+  allow_implicit_invocation: true

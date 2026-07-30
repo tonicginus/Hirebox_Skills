@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hirebox Headhunting Quotation"
+  short_description: "Generate bilingual Hirebox headhunting quotations."
+  default_prompt: "Create a Hirebox headhunting quotation in Word and PDF."
