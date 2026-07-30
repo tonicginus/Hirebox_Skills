@@ -14,14 +14,14 @@
       "version": "0.1.2",
       "path": "packages/hirebox-candidate-report/hirebox-candidate-report-0.1.2-codex.zip",
       "format": "zip",
-      "contentHash": "fd8fc3ea1174947047087d5805f69bcebad6d65ea9d6d2b82428c5024f1ac118"
+      "contentHash": "848c55f3e432e52a4c05d7b2939b310fc0a8c4c3a6b5d4055f623ce1ae20feb8"
     },
     "updatedAt": "2026-07-10T09:29:32.463Z",
     "contentHash": "848c55f3e432e52a4c05d7b2939b310fc0a8c4c3a6b5d4055f623ce1ae20feb8",
     "sourceSkillVersion": "0.1.2",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "24db4264786713d12a8fbf1559f79860776b421d",
+      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
       "contentHash": "848c55f3e432e52a4c05d7b2939b310fc0a8c4c3a6b5d4055f623ce1ae20feb8"
     },
     "platformPackages": {
@@ -29,7 +29,7 @@
         "version": "0.1.2",
         "path": "packages/hirebox-candidate-report/hirebox-candidate-report-0.1.2-codex.zip",
         "format": "zip",
-        "contentHash": "fd8fc3ea1174947047087d5805f69bcebad6d65ea9d6d2b82428c5024f1ac118"
+        "contentHash": "848c55f3e432e52a4c05d7b2939b310fc0a8c4c3a6b5d4055f623ce1ae20feb8"
       },
       "claude-code": {
         "version": "0.1.2",
@@ -60,14 +60,14 @@
       "version": "0.1.2",
       "path": "packages/hirebox-candidate-resume/hirebox-candidate-resume-0.1.2-codex.zip",
       "format": "zip",
-      "contentHash": "fb9bc66bb50e496f162d97d13d0239fce519c55686ee6125574c1fa8356eba0e"
+      "contentHash": "defe38d403fbb11f240913b23b0cddce491c2921496db392069d7e0a07a114e4"
     },
     "updatedAt": "2026-07-10T09:29:33.871Z",
     "contentHash": "defe38d403fbb11f240913b23b0cddce491c2921496db392069d7e0a07a114e4",
     "sourceSkillVersion": "0.1.2",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "24db4264786713d12a8fbf1559f79860776b421d",
+      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
       "contentHash": "defe38d403fbb11f240913b23b0cddce491c2921496db392069d7e0a07a114e4"
     },
     "platformPackages": {
@@ -75,7 +75,7 @@
         "version": "0.1.2",
         "path": "packages/hirebox-candidate-resume/hirebox-candidate-resume-0.1.2-codex.zip",
         "format": "zip",
-        "contentHash": "fb9bc66bb50e496f162d97d13d0239fce519c55686ee6125574c1fa8356eba0e"
+        "contentHash": "defe38d403fbb11f240913b23b0cddce491c2921496db392069d7e0a07a114e4"
       },
       "claude-code": {
         "version": "0.1.2",
@@ -106,14 +106,14 @@
       "version": "0.2.0",
       "path": "packages/hirebox-eor-employment-management-contract/hirebox-eor-employment-management-contract-0.2.0-codex.zip",
       "format": "zip",
-      "contentHash": "d6fa3f70a742f4d9e4f59d9de48546ad5425ce68dbeb664e391ad861570e4c9d"
+      "contentHash": "9be0541f674a3fe9cf38766a4fb0a2a0805231f9375ab6a197404596cccfa40c"
     },
     "updatedAt": "2026-07-24T05:52:02.344Z",
     "contentHash": "9be0541f674a3fe9cf38766a4fb0a2a0805231f9375ab6a197404596cccfa40c",
     "sourceSkillVersion": "0.2.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "24db4264786713d12a8fbf1559f79860776b421d",
+      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
       "contentHash": "9be0541f674a3fe9cf38766a4fb0a2a0805231f9375ab6a197404596cccfa40c"
     },
     "platformPackages": {
@@ -121,7 +121,7 @@
         "version": "0.2.0",
         "path": "packages/hirebox-eor-employment-management-contract/hirebox-eor-employment-management-contract-0.2.0-codex.zip",
         "format": "zip",
-        "contentHash": "d6fa3f70a742f4d9e4f59d9de48546ad5425ce68dbeb664e391ad861570e4c9d"
+        "contentHash": "9be0541f674a3fe9cf38766a4fb0a2a0805231f9375ab6a197404596cccfa40c"
       },
       "claude-code": {
         "version": "0.2.0",
@@ -133,7 +133,7 @@
         "version": "0.2.0",
         "path": "packages/hirebox-eor-employment-management-contract/hirebox-eor-employment-management-contract-0.2.0-gemini.zip",
         "format": "zip",
-        "contentHash": "082bc10c5671915d60462c6781e7f6a3f6b77bff22c73468e37ee9057c56a6cd"
+        "contentHash": "1a37c0dfbd4e45d59207e94e23a9e05cd5e46c2234dfd79c2e5daae9d16c7b54"
       }
     }
   },
@@ -152,14 +152,14 @@
       "version": "0.1.0",
       "path": "packages/hirebox-eor-quotation/hirebox-eor-quotation-0.1.0-codex.zip",
       "format": "zip",
-      "contentHash": "389d783e1272c56870836bb1c403e66c060ba1f1be16be81cadca737c505ffc0"
+      "contentHash": "a6409a297f72cb129c683db958b1cdd123ebca81a0382c194381ba2b84401511"
     },
     "updatedAt": "2026-07-17T14:32:00.275Z",
     "contentHash": "a6409a297f72cb129c683db958b1cdd123ebca81a0382c194381ba2b84401511",
     "sourceSkillVersion": "0.1.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "24db4264786713d12a8fbf1559f79860776b421d",
+      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
       "contentHash": "a6409a297f72cb129c683db958b1cdd123ebca81a0382c194381ba2b84401511"
     },
     "platformPackages": {
@@ -167,7 +167,7 @@
         "version": "0.1.0",
         "path": "packages/hirebox-eor-quotation/hirebox-eor-quotation-0.1.0-codex.zip",
         "format": "zip",
-        "contentHash": "389d783e1272c56870836bb1c403e66c060ba1f1be16be81cadca737c505ffc0"
+        "contentHash": "a6409a297f72cb129c683db958b1cdd123ebca81a0382c194381ba2b84401511"
       },
       "claude-code": {
         "version": "0.1.0",
@@ -198,14 +198,14 @@
       "version": "1.0.1",
       "path": "packages/hirebox-general-contract-template/hirebox-general-contract-template-1.0.1-codex.zip",
       "format": "zip",
-      "contentHash": "9b46e391ac4d39d7fc7ee91c910b075f792d4ffa0bef42cca36dd19697376ba2"
+      "contentHash": "7abdda47eb18de684408c9216d60221f09dea5441e71cf0c58db50af24fc1cab"
     },
     "updatedAt": "2026-07-19T20:06:07.507Z",
     "contentHash": "90f192b21e3a95f08e29df154eb9cac6f37ad96297df1e3f4a4a99dc6a0c94bd",
     "sourceSkillVersion": "1.0.1",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "24db4264786713d12a8fbf1559f79860776b421d",
+      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
       "contentHash": "90f192b21e3a95f08e29df154eb9cac6f37ad96297df1e3f4a4a99dc6a0c94bd"
     },
     "platformPackages": {
@@ -213,7 +213,7 @@
         "version": "1.0.1",
         "path": "packages/hirebox-general-contract-template/hirebox-general-contract-template-1.0.1-codex.zip",
         "format": "zip",
-        "contentHash": "9b46e391ac4d39d7fc7ee91c910b075f792d4ffa0bef42cca36dd19697376ba2"
+        "contentHash": "7abdda47eb18de684408c9216d60221f09dea5441e71cf0c58db50af24fc1cab"
       },
       "claude-code": {
         "version": "1.0.1",
@@ -244,14 +244,14 @@
       "version": "0.1.1",
       "path": "packages/hirebox-headhunting-quotation/hirebox-headhunting-quotation-0.1.1-codex.zip",
       "format": "zip",
-      "contentHash": "b56ff950b270b8f04374993afebd8b03671bc86c80a3c4cdd3c604ef5129e7a6"
+      "contentHash": "7d887e82dd6f592cab4a272ac2b4ff73f0670d6b2ba41bd5ff80be41cb2fae67"
     },
     "updatedAt": "2026-07-16T14:20:27.917Z",
     "contentHash": "7d887e82dd6f592cab4a272ac2b4ff73f0670d6b2ba41bd5ff80be41cb2fae67",
     "sourceSkillVersion": "0.1.1",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "24db4264786713d12a8fbf1559f79860776b421d",
+      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
       "contentHash": "7d887e82dd6f592cab4a272ac2b4ff73f0670d6b2ba41bd5ff80be41cb2fae67"
     },
     "platformPackages": {
@@ -259,7 +259,7 @@
         "version": "0.1.1",
         "path": "packages/hirebox-headhunting-quotation/hirebox-headhunting-quotation-0.1.1-codex.zip",
         "format": "zip",
-        "contentHash": "b56ff950b270b8f04374993afebd8b03671bc86c80a3c4cdd3c604ef5129e7a6"
+        "contentHash": "7d887e82dd6f592cab4a272ac2b4ff73f0670d6b2ba41bd5ff80be41cb2fae67"
       },
       "claude-code": {
         "version": "0.1.1",
@@ -290,14 +290,14 @@
       "version": "0.1.0",
       "path": "packages/hirebox-invoice-template/hirebox-invoice-template-0.1.0-codex.zip",
       "format": "zip",
-      "contentHash": "229fa6deabea2034a0660a8c491fcdaedb0f6c2bfbb65eb8329781b89325b376"
+      "contentHash": "c804df89bbd58c2d50c598a794ce50544f9ed0c5a5bd9dd59efbd4b5cc17d529"
     },
     "updatedAt": "2026-07-10T09:29:45.473Z",
     "contentHash": "c804df89bbd58c2d50c598a794ce50544f9ed0c5a5bd9dd59efbd4b5cc17d529",
     "sourceSkillVersion": "0.1.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "24db4264786713d12a8fbf1559f79860776b421d",
+      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
       "contentHash": "c804df89bbd58c2d50c598a794ce50544f9ed0c5a5bd9dd59efbd4b5cc17d529"
     },
     "platformPackages": {
@@ -305,7 +305,7 @@
         "version": "0.1.0",
         "path": "packages/hirebox-invoice-template/hirebox-invoice-template-0.1.0-codex.zip",
         "format": "zip",
-        "contentHash": "229fa6deabea2034a0660a8c491fcdaedb0f6c2bfbb65eb8329781b89325b376"
+        "contentHash": "c804df89bbd58c2d50c598a794ce50544f9ed0c5a5bd9dd59efbd4b5cc17d529"
       },
       "claude-code": {
         "version": "0.1.0",
@@ -336,14 +336,14 @@
       "version": "0.3.0",
       "path": "packages/hirebox-multilingual-contract-template/hirebox-multilingual-contract-template-0.3.0-codex.zip",
       "format": "zip",
-      "contentHash": "b63ac38fa04016a52436fc7cfbe95c4a80d6f8d128e94f8254892886f09b44be"
+      "contentHash": "261b7a031c1f11e83841931d6626ca1bbdca1a82bbabd0c96268ed9eeb109257"
     },
     "updatedAt": "2026-07-19T20:06:11.315Z",
     "contentHash": "5c726a84a3f7ce817c2100f2988e903fe09003898c1697bc464e942faece7838",
     "sourceSkillVersion": "0.3.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "24db4264786713d12a8fbf1559f79860776b421d",
+      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
       "contentHash": "5c726a84a3f7ce817c2100f2988e903fe09003898c1697bc464e942faece7838"
     },
     "platformPackages": {
@@ -351,7 +351,7 @@
         "version": "0.3.0",
         "path": "packages/hirebox-multilingual-contract-template/hirebox-multilingual-contract-template-0.3.0-codex.zip",
         "format": "zip",
-        "contentHash": "b63ac38fa04016a52436fc7cfbe95c4a80d6f8d128e94f8254892886f09b44be"
+        "contentHash": "261b7a031c1f11e83841931d6626ca1bbdca1a82bbabd0c96268ed9eeb109257"
       },
       "claude-code": {
         "version": "0.3.0",
@@ -382,14 +382,14 @@
       "version": "0.1.0",
       "path": "packages/hirebox-project-quotation/hirebox-project-quotation-0.1.0-codex.zip",
       "format": "zip",
-      "contentHash": "d26f4fb2e1c7f060c5b8466e4970d57ef9b2685942fc9ed033b4a41d706fb8ef"
+      "contentHash": "45cce0559e80b2f7d1038468663f53834f0d913f838193575b05950c727a06ec"
     },
     "updatedAt": "2026-07-20T06:08:17.407Z",
     "contentHash": "7483c8bff82ff022dc3d99f7f21c293fa9e9eb6e79e0dd9b45f136a5bd696561",
     "sourceSkillVersion": "0.1.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "24db4264786713d12a8fbf1559f79860776b421d",
+      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
       "contentHash": "7483c8bff82ff022dc3d99f7f21c293fa9e9eb6e79e0dd9b45f136a5bd696561"
     },
     "platformPackages": {
@@ -397,7 +397,7 @@
         "version": "0.1.0",
         "path": "packages/hirebox-project-quotation/hirebox-project-quotation-0.1.0-codex.zip",
         "format": "zip",
-        "contentHash": "d26f4fb2e1c7f060c5b8466e4970d57ef9b2685942fc9ed033b4a41d706fb8ef"
+        "contentHash": "45cce0559e80b2f7d1038468663f53834f0d913f838193575b05950c727a06ec"
       },
       "claude-code": {
         "version": "0.1.0",
@@ -428,14 +428,14 @@
       "version": "0.2.0",
       "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.0-codex.zip",
       "format": "zip",
-      "contentHash": "6c69e5a687ca4fd92a741781af89eb1fe4a9a90200085150f88005d9f12b4017"
+      "contentHash": "0c2f99e0d071845a19c190b76343944259db00c83b34bb54ba3b6422c81d4f5d"
     },
     "updatedAt": "2026-07-24T05:52:05.010Z",
     "contentHash": "0c2f99e0d071845a19c190b76343944259db00c83b34bb54ba3b6422c81d4f5d",
     "sourceSkillVersion": "0.2.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "24db4264786713d12a8fbf1559f79860776b421d",
+      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
       "contentHash": "0c2f99e0d071845a19c190b76343944259db00c83b34bb54ba3b6422c81d4f5d"
     },
     "platformPackages": {
@@ -443,7 +443,7 @@
         "version": "0.2.0",
         "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.0-codex.zip",
         "format": "zip",
-        "contentHash": "6c69e5a687ca4fd92a741781af89eb1fe4a9a90200085150f88005d9f12b4017"
+        "contentHash": "0c2f99e0d071845a19c190b76343944259db00c83b34bb54ba3b6422c81d4f5d"
       },
       "claude-code": {
         "version": "0.2.0",

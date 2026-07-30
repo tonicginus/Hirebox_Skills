@@ -1345,17 +1345,16 @@ async function buildReleaseRepository(sourceConfig, releaseDir, sourceCommit) {
       await cp(sourceDir, variantDir, { recursive: true, filter: shouldCopySkillFile });
       if (platformName !== "codex") {
         await rm(path.join(variantDir, "agents"), { recursive: true, force: true });
+        const manifestPath = path.join(variantDir, "skill.json");
+        const manifest = await readJson(manifestPath);
+        await writeJson(manifestPath, {
+          ...manifest,
+          version: sourceSkill.version,
+          platforms: [platformName],
+          sourceSkillVersion: sourceSkill.version,
+          sourcePlatform: "codex"
+        });
       }
-
-      const manifestPath = path.join(variantDir, "skill.json");
-      const manifest = await readJson(manifestPath);
-      await writeJson(manifestPath, {
-        ...manifest,
-        version: sourceSkill.version,
-        platforms: [platformName],
-        sourceSkillVersion: sourceSkill.version,
-        sourcePlatform: "codex"
-      });
 
       const archiveRelativePath = path.posix.join(
         PACKAGES_DIRNAME,
@@ -1368,7 +1367,7 @@ async function buildReleaseRepository(sourceConfig, releaseDir, sourceCommit) {
         version: sourceSkill.version,
         path: archiveRelativePath,
         format: "zip",
-        contentHash: await buildSkillContentHash(variantDir, await readJson(manifestPath))
+        contentHash: await buildSkillContentHash(variantDir, await readJson(path.join(variantDir, "skill.json")))
       };
     }
 

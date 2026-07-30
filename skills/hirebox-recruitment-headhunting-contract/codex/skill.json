@@ -6,7 +6,5 @@
     "codex"
   ],
   "dependencies": [],
-  "hirebox": true,
-  "sourceSkillVersion": "0.2.0",
-  "sourcePlatform": "codex"
+  "hirebox": true
 }
