@@ -10,19 +10,21 @@ Clone this repository, then run the launcher for your operating system.
 .\init.cmd
 .\list-skills.cmd
 node .\src\index.js install-skill hirebox-invoice-template gemini
+.\sync-all-platform-skills.cmd
 ```
 
 ```sh
 ./init.sh
 ./list-skills.sh
 node ./src/index.js install-skill hirebox-invoice-template gemini
+./sync-all-platform-skills.sh
 ```
 
 ## Synchronization
 
-- `sync-codex-skills`: synchronizes only the Codex_Sync development source.
-- `sync-all-platform-skills`: publishes and installs only Hirebox_Skills platform packages.
-- `sync-skills`: runs the Codex source sync followed by the all-platform release sync.
+This clone is a distribution client: `sync-all-platform-skills` pulls the current release and installs Codex, Claude Code, and Gemini packages.
+
+`sync-codex-skills` and `sync-skills` are development-workspace commands. Run them only from the Codex_Sync copy of the Hirebox Skill Manager.
 
 ## Released Skills
 

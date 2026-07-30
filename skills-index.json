@@ -21,7 +21,7 @@
     "sourceSkillVersion": "0.1.2",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "commit": "11540f4f04f0328ac7c6f6a2926bea7071f7b9b4",
       "contentHash": "848c55f3e432e52a4c05d7b2939b310fc0a8c4c3a6b5d4055f623ce1ae20feb8"
     },
     "platformPackages": {
@@ -67,7 +67,7 @@
     "sourceSkillVersion": "0.1.2",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "commit": "11540f4f04f0328ac7c6f6a2926bea7071f7b9b4",
       "contentHash": "defe38d403fbb11f240913b23b0cddce491c2921496db392069d7e0a07a114e4"
     },
     "platformPackages": {
@@ -113,7 +113,7 @@
     "sourceSkillVersion": "0.2.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "commit": "11540f4f04f0328ac7c6f6a2926bea7071f7b9b4",
       "contentHash": "9be0541f674a3fe9cf38766a4fb0a2a0805231f9375ab6a197404596cccfa40c"
     },
     "platformPackages": {
@@ -133,7 +133,7 @@
         "version": "0.2.0",
         "path": "packages/hirebox-eor-employment-management-contract/hirebox-eor-employment-management-contract-0.2.0-gemini.zip",
         "format": "zip",
-        "contentHash": "1a37c0dfbd4e45d59207e94e23a9e05cd5e46c2234dfd79c2e5daae9d16c7b54"
+        "contentHash": "082bc10c5671915d60462c6781e7f6a3f6b77bff22c73468e37ee9057c56a6cd"
       }
     }
   },
@@ -159,7 +159,7 @@
     "sourceSkillVersion": "0.1.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "commit": "11540f4f04f0328ac7c6f6a2926bea7071f7b9b4",
       "contentHash": "a6409a297f72cb129c683db958b1cdd123ebca81a0382c194381ba2b84401511"
     },
     "platformPackages": {
@@ -205,7 +205,7 @@
     "sourceSkillVersion": "1.0.1",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "commit": "11540f4f04f0328ac7c6f6a2926bea7071f7b9b4",
       "contentHash": "90f192b21e3a95f08e29df154eb9cac6f37ad96297df1e3f4a4a99dc6a0c94bd"
     },
     "platformPackages": {
@@ -251,7 +251,7 @@
     "sourceSkillVersion": "0.1.1",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "commit": "11540f4f04f0328ac7c6f6a2926bea7071f7b9b4",
       "contentHash": "7d887e82dd6f592cab4a272ac2b4ff73f0670d6b2ba41bd5ff80be41cb2fae67"
     },
     "platformPackages": {
@@ -297,7 +297,7 @@
     "sourceSkillVersion": "0.1.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "commit": "11540f4f04f0328ac7c6f6a2926bea7071f7b9b4",
       "contentHash": "c804df89bbd58c2d50c598a794ce50544f9ed0c5a5bd9dd59efbd4b5cc17d529"
     },
     "platformPackages": {
@@ -343,7 +343,7 @@
     "sourceSkillVersion": "0.3.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "commit": "11540f4f04f0328ac7c6f6a2926bea7071f7b9b4",
       "contentHash": "5c726a84a3f7ce817c2100f2988e903fe09003898c1697bc464e942faece7838"
     },
     "platformPackages": {
@@ -389,7 +389,7 @@
     "sourceSkillVersion": "0.1.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "commit": "11540f4f04f0328ac7c6f6a2926bea7071f7b9b4",
       "contentHash": "7483c8bff82ff022dc3d99f7f21c293fa9e9eb6e79e0dd9b45f136a5bd696561"
     },
     "platformPackages": {
@@ -435,7 +435,7 @@
     "sourceSkillVersion": "0.2.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "5e860e795a8ed3b9aacfc16ff2133bf44a7af974",
+      "commit": "11540f4f04f0328ac7c6f6a2926bea7071f7b9b4",
       "contentHash": "0c2f99e0d071845a19c190b76343944259db00c83b34bb54ba3b6422c81d4f5d"
     },
     "platformPackages": {

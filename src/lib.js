@@ -29,6 +29,7 @@ const PACKAGES_DIRNAME = "packages";
 const PORTABLE_PACKAGE_NAME = "hirebox-skill-manager-portable";
 const DISTRIBUTION_MARKER_FILE = "hirebox-distribution.json";
 const HIREBOX_MARKER_FILE = ".hirebox-skill.json";
+const IS_DISTRIBUTION_ROOT = existsSync(path.join(PROJECT_ROOT, DISTRIBUTION_MARKER_FILE));
 const HIREBOX_KEYWORDS = ["hirebox", "海钡", "海钡人力"];
 const HIREBOX_SKILL_NAME_PATTERN = /^hirebox-[a-z0-9]+(?:-[a-z0-9]+)*$/u;
 const HIREBOX_INVOCATION_PATTERN = /\$([a-z0-9]+(?:-[a-z0-9]+)*)/gu;
@@ -39,7 +40,7 @@ const LEGACY_HIREBOX_SKILL_RENAMES = new Map([
 
 const defaultConfig = {
   skillRepositoryDir: PROJECT_ROOT,
-  releaseRepositoryDir: path.join(PROJECT_ROOT, APP_DIR, "Hirebox_Skills"),
+  releaseRepositoryDir: IS_DISTRIBUTION_ROOT ? PROJECT_ROOT : path.join(PROJECT_ROOT, APP_DIR, "Hirebox_Skills"),
   github: {
     repository: "https://github.com/tonicginus/Hirebox_Skills.git",
     branch: "main"
@@ -201,6 +202,9 @@ export async function validateHireboxSkillDirectory(skillDir, expectedName = nul
 
 export async function validateHireboxLibrary(config, options = {}) {
   const repoDir = getSkillRepositoryDir(config);
+  if (pathExistsSync(path.join(repoDir, DISTRIBUTION_MARKER_FILE))) {
+    return validateReleaseLibrary(repoDir);
+  }
   const index = await readRemoteIndex(config);
   const errors = [];
   const names = new Set();
@@ -350,6 +354,9 @@ export async function hireboxSkillsSyncForPlatform(config, requestedPlatformName
 }
 
 export async function syncCodexSkills(config) {
+  if (IS_DISTRIBUTION_ROOT) {
+    throw new Error("Codex source synchronization must run from the Codex_Sync development workspace, not from a Hirebox_Skills clone.");
+  }
   const sourceConfig = { ...config, skillRepositoryDir: PROJECT_ROOT };
   const gitRoot = await getGitRoot(PROJECT_ROOT);
   const branch = await getCurrentBranch(gitRoot);
@@ -387,6 +394,17 @@ export async function syncCodexSkills(config) {
 }
 
 export async function syncAllPlatformSkills(config) {
+  if (IS_DISTRIBUTION_ROOT) {
+    const releaseDir = await ensureReleaseRepository(config);
+    await runGit(["-C", releaseDir, "pull", "--ff-only"], PROJECT_ROOT);
+    const releaseConfig = { ...config, skillRepositoryDir: releaseDir };
+    await validateHireboxLibrary(releaseConfig);
+    for (const platformName of ["codex", "claude-code", "gemini"]) {
+      await installAllReleasedSkills(releaseConfig, platformName);
+    }
+    console.log("Installed the current Hirebox_Skills release for all platforms.");
+    return;
+  }
   const sourceConfig = { ...config, skillRepositoryDir: PROJECT_ROOT };
   const sourceGitRoot = await getGitRoot(PROJECT_ROOT);
   const sourceStatus = await getGitStatus(sourceGitRoot, PROJECT_ROOT);
@@ -419,6 +437,9 @@ export async function syncAllPlatformSkills(config) {
 }
 
 export async function syncSkills(config) {
+  if (IS_DISTRIBUTION_ROOT) {
+    return syncAllPlatformSkills(config);
+  }
   await syncCodexSkills(config);
   return syncAllPlatformSkills(config);
 }
@@ -1311,6 +1332,7 @@ async function buildReleaseRepository(sourceConfig, releaseDir, sourceCommit) {
   await rm(path.join(releaseDir, PACKAGES_DIRNAME), { recursive: true, force: true });
   await rm(path.join(releaseDir, PORTABLE_PACKAGE_NAME), { recursive: true, force: true });
   await rm(path.join(releaseDir, `${PORTABLE_PACKAGE_NAME}.zip`), { force: true });
+  await rm(path.join(releaseDir, "tool.json"), { force: true });
   await mkdir(path.join(releaseDir, SKILLS_DIRNAME), { recursive: true });
   await mkdir(path.join(releaseDir, PACKAGES_DIRNAME), { recursive: true });
 
@@ -1395,6 +1417,31 @@ async function readReleaseIndex(releaseDir) {
   return index;
 }
 
+async function validateReleaseLibrary(releaseDir) {
+  const index = await readReleaseIndex(releaseDir);
+  const errors = [];
+  for (const skill of index) {
+    for (const platformName of ["codex", "claude-code", "gemini"]) {
+      const packageInfo = skill.platformPackages?.[platformName];
+      const variantDir = path.join(releaseDir, SKILLS_DIRNAME, skill.name, platformName);
+      if (!packageInfo?.path || packageInfo.version !== skill.sourceSkillVersion) {
+        errors.push(`invalid ${platformName} package metadata for ${skill.name}`);
+        continue;
+      }
+      if (!pathExistsSync(path.join(releaseDir, ...packageInfo.path.split("/")))) {
+        errors.push(`missing ${platformName} package for ${skill.name}`);
+      }
+      if (!pathExistsSync(path.join(variantDir, "SKILL.md"))) {
+        errors.push(`missing ${platformName} skill directory for ${skill.name}`);
+      }
+    }
+  }
+  if (errors.length) {
+    throw new Error(`Hirebox distribution validation failed:\n- ${errors.join("\n- ")}`);
+  }
+  return { skillCount: index.length };
+}
+
 async function installAllReleasedSkills(config, platformName) {
   const index = await readReleaseIndex(getSkillRepositoryDir(config));
   for (const skill of index) {
@@ -1474,7 +1521,7 @@ async function buildReleasePortableArchive(releaseDir) {
 
 function buildReleaseReadme(index) {
   const skillRows = index.map((skill) => `| ${skill.name} | ${skill.sourceSkillVersion} | Codex, Claude Code, Gemini |`).join("\n");
-  return `# Hirebox Skills\n\nThis repository distributes Hirebox custom skills for Codex, Claude Code, and Gemini CLI. Node.js and Git are required.\n\n## Install\n\nClone this repository, then run the launcher for your operating system.\n\n\`\`\`powershell\n.\\init.cmd\n.\\list-skills.cmd\nnode .\\src\\index.js install-skill hirebox-invoice-template gemini\n\`\`\`\n\n\`\`\`sh\n./init.sh\n./list-skills.sh\nnode ./src/index.js install-skill hirebox-invoice-template gemini\n\`\`\`\n\n## Synchronization\n\n- \`sync-codex-skills\`: synchronizes only the Codex_Sync development source.\n- \`sync-all-platform-skills\`: publishes and installs only Hirebox_Skills platform packages.\n- \`sync-skills\`: runs the Codex source sync followed by the all-platform release sync.\n\n## Released Skills\n\n| Skill | Source version | Platforms |\n| --- | --- | --- |\n${skillRows}\n\nEvery released package retains the Codex source version, content hash, and source commit in \`skills-index.json\`.\n`;
+  return `# Hirebox Skills\n\nThis repository distributes Hirebox custom skills for Codex, Claude Code, and Gemini CLI. Node.js and Git are required.\n\n## Install\n\nClone this repository, then run the launcher for your operating system.\n\n\`\`\`powershell\n.\\init.cmd\n.\\list-skills.cmd\nnode .\\src\\index.js install-skill hirebox-invoice-template gemini\n.\\sync-all-platform-skills.cmd\n\`\`\`\n\n\`\`\`sh\n./init.sh\n./list-skills.sh\nnode ./src/index.js install-skill hirebox-invoice-template gemini\n./sync-all-platform-skills.sh\n\`\`\`\n\n## Synchronization\n\nThis clone is a distribution client: \`sync-all-platform-skills\` pulls the current release and installs Codex, Claude Code, and Gemini packages.\n\n\`sync-codex-skills\` and \`sync-skills\` are development-workspace commands. Run them only from the Codex_Sync copy of the Hirebox Skill Manager.\n\n## Released Skills\n\n| Skill | Source version | Platforms |\n| --- | --- | --- |\n${skillRows}\n\nEvery released package retains the Codex source version, content hash, and source commit in \`skills-index.json\`.\n`;
 }
 
 function normalizeRepositoryUrl(value) {
