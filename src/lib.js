@@ -1397,6 +1397,7 @@ async function buildReleaseRepository(sourceConfig, releaseDir, sourceCommit) {
   });
   await cp(path.join(PROJECT_ROOT, "src"), path.join(releaseDir, "src"), { recursive: true });
   await cp(path.join(PROJECT_ROOT, "package.json"), path.join(releaseDir, "package.json"));
+  await writeFile(path.join(releaseDir, ".gitignore"), `${APP_DIR}/\n`, "utf8");
   await writeReleaseLaunchers(releaseDir);
   await writeFile(path.join(releaseDir, "README.md"), buildReleaseReadme(releaseIndex), "utf8");
   await buildReleasePortableArchive(releaseDir);
