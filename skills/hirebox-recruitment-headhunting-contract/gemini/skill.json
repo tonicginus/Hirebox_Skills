@@ -1,12 +1,12 @@
 {
   "name": "hirebox-recruitment-headhunting-contract",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Create a Hirebox Thai-Chinese recruitment and headhunting service contract from the retained Word template. Use when the user requests a Hirebox recruitment or headhunting contract, selects this contract template, or invokes $hirebox-recruitment-headhunting-contract.",
   "platforms": [
     "gemini"
   ],
   "dependencies": [],
   "hirebox": true,
-  "sourceSkillVersion": "0.2.0",
+  "sourceSkillVersion": "0.2.2",
   "sourcePlatform": "codex"
 }

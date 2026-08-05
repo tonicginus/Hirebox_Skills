@@ -21,7 +21,7 @@
     "sourceSkillVersion": "0.1.2",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
+      "commit": "e9307863fa28fb6e2ed2b63ae22c1ffc319466e0",
       "contentHash": "848c55f3e432e52a4c05d7b2939b310fc0a8c4c3a6b5d4055f623ce1ae20feb8"
     },
     "platformPackages": {
@@ -67,7 +67,7 @@
     "sourceSkillVersion": "0.1.2",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
+      "commit": "e9307863fa28fb6e2ed2b63ae22c1ffc319466e0",
       "contentHash": "defe38d403fbb11f240913b23b0cddce491c2921496db392069d7e0a07a114e4"
     },
     "platformPackages": {
@@ -113,7 +113,7 @@
     "sourceSkillVersion": "0.2.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
+      "commit": "e9307863fa28fb6e2ed2b63ae22c1ffc319466e0",
       "contentHash": "9be0541f674a3fe9cf38766a4fb0a2a0805231f9375ab6a197404596cccfa40c"
     },
     "platformPackages": {
@@ -159,7 +159,7 @@
     "sourceSkillVersion": "0.1.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
+      "commit": "e9307863fa28fb6e2ed2b63ae22c1ffc319466e0",
       "contentHash": "a6409a297f72cb129c683db958b1cdd123ebca81a0382c194381ba2b84401511"
     },
     "platformPackages": {
@@ -205,7 +205,7 @@
     "sourceSkillVersion": "1.0.1",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
+      "commit": "e9307863fa28fb6e2ed2b63ae22c1ffc319466e0",
       "contentHash": "90f192b21e3a95f08e29df154eb9cac6f37ad96297df1e3f4a4a99dc6a0c94bd"
     },
     "platformPackages": {
@@ -251,7 +251,7 @@
     "sourceSkillVersion": "0.1.1",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
+      "commit": "e9307863fa28fb6e2ed2b63ae22c1ffc319466e0",
       "contentHash": "7d887e82dd6f592cab4a272ac2b4ff73f0670d6b2ba41bd5ff80be41cb2fae67"
     },
     "platformPackages": {
@@ -297,7 +297,7 @@
     "sourceSkillVersion": "0.1.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
+      "commit": "e9307863fa28fb6e2ed2b63ae22c1ffc319466e0",
       "contentHash": "c804df89bbd58c2d50c598a794ce50544f9ed0c5a5bd9dd59efbd4b5cc17d529"
     },
     "platformPackages": {
@@ -343,7 +343,7 @@
     "sourceSkillVersion": "0.3.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
+      "commit": "e9307863fa28fb6e2ed2b63ae22c1ffc319466e0",
       "contentHash": "5c726a84a3f7ce817c2100f2988e903fe09003898c1697bc464e942faece7838"
     },
     "platformPackages": {
@@ -389,7 +389,7 @@
     "sourceSkillVersion": "0.1.0",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
+      "commit": "e9307863fa28fb6e2ed2b63ae22c1ffc319466e0",
       "contentHash": "7483c8bff82ff022dc3d99f7f21c293fa9e9eb6e79e0dd9b45f136a5bd696561"
     },
     "platformPackages": {
@@ -415,7 +415,7 @@
   },
   {
     "name": "hirebox-recruitment-headhunting-contract",
-    "version": "0.2.0",
+    "version": "0.2.2",
     "description": "Create a Hirebox Thai-Chinese recruitment and headhunting service contract from the retained Word template. Use when the user requests a Hirebox recruitment or headhunting contract, selects this contract template, or invokes $hirebox-recruitment-headhunting-contract.",
     "platforms": [
       "codex",
@@ -423,39 +423,39 @@
       "gemini"
     ],
     "dependencies": [],
-    "sourcePlatform": null,
+    "sourcePlatform": "codex",
     "archive": {
-      "version": "0.2.0",
-      "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.0-codex.zip",
+      "version": "0.2.2",
+      "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.2-codex.zip",
       "format": "zip",
-      "contentHash": "0c2f99e0d071845a19c190b76343944259db00c83b34bb54ba3b6422c81d4f5d"
+      "contentHash": "84207670c632ffdb82ab67bf9cfbf7bdf4b837731b2269f2489acc7114009f4d"
     },
-    "updatedAt": "2026-07-24T05:52:05.010Z",
-    "contentHash": "0c2f99e0d071845a19c190b76343944259db00c83b34bb54ba3b6422c81d4f5d",
-    "sourceSkillVersion": "0.2.0",
+    "updatedAt": "2026-08-05T08:20:58.343Z",
+    "contentHash": "84207670c632ffdb82ab67bf9cfbf7bdf4b837731b2269f2489acc7114009f4d",
+    "sourceSkillVersion": "0.2.2",
     "source": {
       "repository": "Codex_Sync",
-      "commit": "26309aa3f97f017207144e9fda36ebb0868d9631",
-      "contentHash": "0c2f99e0d071845a19c190b76343944259db00c83b34bb54ba3b6422c81d4f5d"
+      "commit": "e9307863fa28fb6e2ed2b63ae22c1ffc319466e0",
+      "contentHash": "84207670c632ffdb82ab67bf9cfbf7bdf4b837731b2269f2489acc7114009f4d"
     },
     "platformPackages": {
       "codex": {
-        "version": "0.2.0",
-        "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.0-codex.zip",
+        "version": "0.2.2",
+        "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.2-codex.zip",
         "format": "zip",
-        "contentHash": "0c2f99e0d071845a19c190b76343944259db00c83b34bb54ba3b6422c81d4f5d"
+        "contentHash": "84207670c632ffdb82ab67bf9cfbf7bdf4b837731b2269f2489acc7114009f4d"
       },
       "claude-code": {
-        "version": "0.2.0",
-        "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.0-claude-code.zip",
+        "version": "0.2.2",
+        "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.2-claude-code.zip",
         "format": "zip",
-        "contentHash": "13be51ef36f0225131fbe306309cb96a10495f466ad13066f660832d16c1f518"
+        "contentHash": "20999c0bac64d3ddc86dc1fa17fd1efd2299b4467a4f815b382c466983a85bce"
       },
       "gemini": {
-        "version": "0.2.0",
-        "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.0-gemini.zip",
+        "version": "0.2.2",
+        "path": "packages/hirebox-recruitment-headhunting-contract/hirebox-recruitment-headhunting-contract-0.2.2-gemini.zip",
         "format": "zip",
-        "contentHash": "d98dfb2ca5b16828f672598e4796d1072a2f6a05311ff0fcc529273bbe8f00b5"
+        "contentHash": "72267488431d4188a83d5f9ce25de8581d9ee6a43d4e2f02ec83b642541e3901"
       }
     }
   }
