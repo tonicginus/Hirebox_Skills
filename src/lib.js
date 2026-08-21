@@ -6,6 +6,7 @@ import {
   readFile,
   readdir,
   realpath,
+  rename,
   rm,
   stat,
   writeFile
@@ -1606,23 +1607,40 @@ async function zipDirectory(sourceDir, archivePath) {
     return;
   }
 
-  await execFileAsync(
-    "powershell",
-    [
-      "-NoProfile",
-      "-Command",
-      "Compress-Archive",
-      "-Path",
-      folderName,
-      "-DestinationPath",
-      archivePath,
-      "-Force"
-    ],
-    {
-      cwd: parentDir,
-      windowsHide: true
+  try {
+    await execFileAsync(
+      "powershell",
+      [
+        "-NoProfile",
+        "-Command",
+        "Compress-Archive",
+        "-Path",
+        folderName,
+        "-DestinationPath",
+        archivePath,
+        "-Force"
+      ],
+      {
+        cwd: parentDir,
+        windowsHide: true
+      }
+    );
+  } catch (powershellError) {
+    const fallbackArchive = path.join(parentDir, `${folderName}.zip`);
+    try {
+      await rm(fallbackArchive, { force: true });
+      await execFileAsync("tar", ["-a", "-cf", path.basename(fallbackArchive), folderName], {
+        cwd: parentDir,
+        windowsHide: true
+      });
+      if (path.resolve(fallbackArchive) !== path.resolve(archivePath)) {
+        await rm(archivePath, { force: true });
+        await rename(fallbackArchive, archivePath);
+      }
+    } catch (tarError) {
+      throw new Error(`Unable to create ZIP with PowerShell or tar: ${tarError.message}`);
     }
-  );
+  }
 }
 
 async function unzipArchive(archivePath, targetDir) {

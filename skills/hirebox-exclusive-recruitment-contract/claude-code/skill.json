@@ -1,0 +1,12 @@
+{
+  "name": "hirebox-exclusive-recruitment-contract",
+  "version": "0.1.1",
+  "description": "Create a Hirebox Thai-Chinese exclusive recruitment service contract from the retained Word template. Use for exclusive or sole-agency recruitment cooperation, exclusive retained-search positions, or $hirebox-exclusive-recruitment-contract. Do not use for ordinary non-exclusive recruitment or headhunting contracts.",
+  "platforms": [
+    "claude-code"
+  ],
+  "dependencies": [],
+  "hirebox": true,
+  "sourceSkillVersion": "0.1.1",
+  "sourcePlatform": "codex"
+}

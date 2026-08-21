@@ -1,32 +1,65 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "templateFamily": "Hirebox Thai-Chinese employment-management EOR service contract",
-  "authoritativeProjectTemplate": "海钡合同撰写/海钡人力雇佣管理EOR服务合同模板.docx",
-  "requiredAnchors": [
-    "ข้อมูลคู่สัญญา | 当事方基本信息",
-    "คำสั่งซื้อนี้ใช้สำหรับการที่ผู้รับบริการจัดซื้อบริการบริหารการจ้างงาน/การว่าจ้าง (EOR) จากผู้ให้บริการตามสัญญากรอบ。",
-    "本订单适用于甲方依据框架协议向乙方采购的雇佣/聘用（EOR）管理服务。",
-    "ข้อที่ 1 ขอบเขตของบริการ / 第一条 服务范围",
-    "ข้อที่ 2 ค่าบริการและการชำระเงิน / 第二条 费用及支付",
-    "ข้อที่ 5 ระยะเวลาการให้บริการ / 第五条 服务期限",
-    "ข้อที่ 6 การยุติคำสั่งซื้อ / 第六条 订单的终止",
-    "ข้อที่ 7 การปฏิบัติตามข้อกำหนดด้านข้อมูล / 第七条 数据合规",
-    "ข้อที่ 8 ข้อกำหนดต่อต้านการให้สินบน / 第八条 反贿赂条款",
-    "ข้อที่ 9 อื่น ๆ / 第九条 其他",
-    "การลงนามโดยผู้มีอำนาจ | 授权签署",
-    "เอกสารแนบ 1: หลักฐานคุณสมบัติของฝ่าย ก / 附件一：甲方主体资格证明",
-    "เอกสารแนบ 2: หลักฐานคุณสมบัติของฝ่าย ข / 附件二：乙方主体资格证明"
-  ],
-  "fontPolicy": {
-    "thai": "Leelawadee UI",
-    "chinese": "SimSun",
-    "mixedText": "Use separate Thai and Chinese runs whenever direct run formatting is applied."
+  "authoritativeProjectTemplate": "多语言合同文本模板/海钡人力雇佣管理EOR服务合同模板_中泰双语.docx",
+  "referenceSha256": "5D274E33C79217A153D6FA29CC0FDE640DAA4DB0F72AA37FBDF38785C1BE851F",
+  "defaultFields": {
+    "chineseTitle": "海钡人力 雇佣管理（EOR）专项服务协议",
+    "contractNumberPattern": "HB-EOR-YYYYMMDD-XXX",
+    "generationRule": "Replace YYYYMMDD with the contract generation date and retain XXX unless the user supplies a serial number.",
+    "signingPlace": "กรุงเทพมหานคร / 曼谷市",
+    "signingPlaceRule": "Use Party B business-license city; Bangkok is the current default.",
+    "signingTimeRule": "Use the contract generation date by default."
   },
-  "layoutRequirements": {
-    "signaturePageStandalone": true,
+  "requiredAnchors": {
+    "cover": [
+      "สัญญาบริการบริหารการจ้างงานเฉพาะทาง (EOR) ของไฮเออร์บ๊อกซ์",
+      "海钡人力 雇佣管理（EOR）专项服务协议",
+      "สัญญาฉบับสองภาษา (ภาษาไทยและภาษาจีน) | 双语版本合同（泰语和中文）"
+    ],
+    "partyInformation": [
+      "ข้อมูลคู่สัญญา | 当事方基本信息",
+      "เลขที่สัญญา / 合同编号",
+      "HB-EOR-YYYYMMDD-XXX",
+      "สถานที่ลงนาม / 签订地点",
+      "กรุงเทพมหานคร / 曼谷市",
+      "วันที่ลงนาม / 签订时间",
+      "วันที่สร้างสัญญา / 合同生成日期"
+    ],
+    "preamble": [
+      "本合同由以下双方签订：",
+      "鉴于甲方希望聘请在国际人力资源服务方面具有专业经验的乙方",
+      "乙方同意向甲方提供雇佣/聘用（EOR）管理服务",
+      "ผู้ให้บริการตกลงที่จะให้บริการบริหารการจ้างงาน/การว่าจ้าง (EOR) ดังกล่าวแก่ผู้รับบริการ"
+    ],
+    "articles": [
+      "ข้อที่ 1 ขอบเขตของบริการ / 第一条 服务范围",
+      "ข้อที่ 2 ค่าบริการและการชำระเงิน / 第二条 费用及支付",
+      "ข้อที่ 5 ระยะเวลาการให้บริการ / 第五条 服务期限",
+      "ข้อที่ 6 การยุติสัญญา / 第六条 本协议的终止",
+      "ข้อที่ 7 การปฏิบัติตามข้อกำหนดด้านข้อมูล / 第七条 数据合规",
+      "ข้อที่ 8 ข้อกำหนดต่อต้านการให้สินบน / 第八条 反贿赂条款",
+      "ข้อที่ 9 อื่น ๆ / 第九条 其他"
+    ],
+    "signatureAndAppendices": [
+      "การลงนามโดยผู้มีอำนาจ | 授权签署",
+      "เอกสารแนบ 1: หลักฐานคุณสมบัติของฝ่าย ก / 附件一：甲方主体资格证明",
+      "เอกสารแนบ 2: หลักฐานคุณสมบัติของฝ่าย ข / 附件二：乙方主体资格证明"
+    ]
+  },
+  "fontPolicy": {
+    "scanParts": ["word/document.xml", "word/header*.xml", "word/footer*.xml", "word/footnotes.xml", "word/endnotes.xml"],
+    "chinese": {"font": "SimSun", "requireExplicitEastAsiaFont": true, "scope": "all Chinese runs including cover, tables, clauses, headers, footers, signature page, and appendices"},
+    "thai": {"font": "Leelawadee UI", "scope": "all Thai runs"},
+    "mixedThaiChineseRuns": {"expected": 0, "rule": "A run containing Thai and Chinese characters must be split into Thai-only and Chinese-only runs."}
+  },
+  "structureRequirements": {
+    "minimumTables": 3,
     "signatureTableRows": 6,
     "signatureTableColumns": 2,
-    "appendixPagesStandalone": true,
+    "signaturePageStandalone": true,
+    "appendixOneStandalone": true,
+    "appendixTwoStandalone": true,
     "renderEveryPage": true
   },
   "partyEvidence": {

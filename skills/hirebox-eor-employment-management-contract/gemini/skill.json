@@ -1,12 +1,12 @@
 {
   "name": "hirebox-eor-employment-management-contract",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Create or revise a Hirebox Thai-Chinese employment-management (EOR) service contract from the retained Word template. Use when the user selects this contract template, requests a Hirebox EOR employment-management contract, or invokes $hirebox-eor-employment-management-contract.",
   "platforms": [
     "gemini"
   ],
   "dependencies": [],
   "hirebox": true,
-  "sourceSkillVersion": "0.2.0",
+  "sourceSkillVersion": "0.2.2",
   "sourcePlatform": "codex"
 }

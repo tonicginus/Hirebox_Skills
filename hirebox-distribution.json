@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "sourceRepository": "Codex_Sync",
-  "sourceCommit": "e9307863fa28fb6e2ed2b63ae22c1ffc319466e0",
-  "generatedAt": "2026-08-05T08:30:53.748Z",
+  "sourceCommit": "c4f7f72a409103e95421b187723e2990ad4a5204",
+  "generatedAt": "2026-08-21T11:29:39.896Z",
   "platforms": [
     "codex",
     "claude-code",

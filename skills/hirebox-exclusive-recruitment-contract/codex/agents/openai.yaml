@@ -1,0 +1,7 @@
+interface:
+  display_name: "Hirebox Exclusive Recruitment Contract"
+  short_description: "Create Thai-Chinese exclusive recruitment contracts"
+  icon_large: "./assets/preview.png"
+  default_prompt: "Use $hirebox-exclusive-recruitment-contract to create a Thai-Chinese exclusive recruitment service contract from the retained template."
+policy:
+  allow_implicit_invocation: true

@@ -5,52 +5,40 @@ description: "Create or revise a Hirebox Thai-Chinese employment-management (EOR
 
 # Hirebox EOR Employment Management Contract
 
-Create a contract from the maintained Thai-Chinese EOR template. Keep the retained reference unchanged during normal contract creation.
+Create or revise a Thai-Chinese EOR contract from the maintained final template. Keep the retained reference unchanged during normal contract creation.
 
-## Authority and source selection
+## Single authority and source selection
 
-1. Read `artifact-template.json` and `assets/template-quality-gate.json`.
-2. Use the project-owned template `海钡合同撰写/海钡人力雇佣管理EOR服务合同模板.docx` as the effective business-template authority when available. The retained `assets/reference.docx` is the synchronized reusable copy and fallback; it is not a replacement for the project-owned template.
-3. Apply this hierarchy: Hirebox global visual master -> Thai-Chinese language-layout rules -> this EOR business template -> user-confirmed facts and requested clause changes.
+1. Read `artifact-template.json` and `assets/template-quality-gate.json` before drafting.
+2. `多语言合同文本模板/海钡人力雇佣管理EOR服务合同模板_中泰双语.docx` is the only final authority for this Skill's content and appearance. `assets/reference.docx` is its byte-synchronized reusable copy. Do not substitute an earlier EOR template or a generic visual master.
+3. Work from a copy of `assets/reference.docx`; preserve all unaffected package parts, tables, headers, footers, page furniture, and bilingual sequencing.
 4. Read [@documents](plugin://documents@openai-primary-runtime) and follow its template-render-and-verify workflow.
-5. Never invent party facts, fees, taxes, dates, term lengths, payment arrangements, governing law, or other commercial/legal commitments. Keep an explicit placeholder when a required fact is not confirmed.
+5. Never invent party facts, fees, taxes, dates other than the stated defaults, term lengths, payment arrangements, governing law, or other commercial/legal commitments. Retain an explicit placeholder when a required fact is unconfirmed.
 
-## Preserve the contract body
+## Required cover, defaults, and preamble
 
-- Treat every anchor listed in `assets/template-quality-gate.json` as required source coverage.
-- Preserve the party-information table, bilingual preamble, all service, fee, payment, responsibility, term, termination, data-compliance, anti-bribery, and miscellaneous clauses, the signature page, and both qualification-evidence appendices unless the user explicitly asks to remove exact content.
-- Replace party placeholders only with confirmed information. Do not delete an entire preamble, clause, or appendix because one field is unavailable.
-- For a requested clause change, alter only the relevant Thai/Chinese counterpart paragraphs and preserve unrelated language, numbering, tables, headers, footers, and recurring page elements.
-- Preserve bilingual pairing, meaning, sequence, and clause numbers. Do not convert paired content into a single-language paragraph.
+- Retain the corresponding Thai title and use the Chinese title exactly as `海钡人力 雇佣管理（EOR）专项服务协议`.
+- Use contract-number default `HB-EOR-YYYYMMDD-XXX`. At generation time replace only `YYYYMMDD` with the generation date; retain the `XXX` serial-number placeholder unless the user provides it.
+- Use the Party B business-license city as the default signing place; the current default is `กรุงเทพมหานคร / 曼谷市`. Use the contract-generation date as the default signing time.
+- Before Article 1, retain the final template's party-information title/table, both party descriptions, bilingual preamble, the Chinese recitals, and the purpose of the services purchased under this agreement. The Thai recital must expressly state that Party B agrees to provide Party A with employment/hiring (EOR) management services.
+- Treat all anchors in `assets/template-quality-gate.json` as mandatory source coverage. Preserve all clauses, the signature page, and both qualification-evidence appendices unless the user explicitly requests an identified removal.
 
-## Mixed Thai-Chinese typography and layout
+## Bilingual typography and layout
 
-- Chinese text must use `SimSun`, including Chinese-only paragraphs, table cells, headings, clause counterparts, and appendices.
-- Thai text must use `Leelawadee UI`. In mixed Thai-Chinese paragraphs or headings, split Thai and Chinese text into separate runs where needed; do not apply Thai font to a complete run containing Chinese.
-- When adding or restoring a paragraph, copy paragraph and run properties from the matching role in the template before replacing text. Do not create an unformatted `Normal` paragraph for headings, body counterparts, signature statements, or appendices.
-- Keep bilingual headings in the template's blue, bold treatment. Keep Chinese body counterparts with the prescribed indentation, line spacing, background, and left emphasis rule.
-- Retain tabs, manual breaks, table geometry, headers, and footers. Do not rebuild existing tables with generic defaults.
+- Every Chinese text run must explicitly resolve to `SimSun`: cover bilingual description, party-information headings and tables, Thai-Chinese clause headings, body, headers, footers, signature page, and appendices.
+- Thai text runs must use `Leelawadee UI`. A run containing Thai and Chinese characters is prohibited: split it into Thai-only and Chinese-only runs, preserving the source paragraph/run properties and visual pairing.
+- When editing, use the matching template role and retain its blue bold bilingual-heading treatment, Chinese body indentation/line spacing/background/left rule, tabs, manual breaks, table geometry, headers, and footers. Do not rebuild tables with generic defaults.
+- Preserve bilingual meaning, sequence, and clause numbers. For a requested change, edit only the matched Thai/Chinese counterparts and leave unrelated text and layout untouched.
 
-## Pagination and signing
+## Pagination, signatures, and evidence
 
-- Keep the cover page, signature page, and each appendix on their required standalone pages.
-- Keep each Thai-Chinese clause pair together whenever it fits on one page.
-- The signature page must retain the bilingual authorization heading, explanatory statements, and the six-row, two-column signature table. The heading must start on a new page, and the statement/table must not split across pages.
-- Do not use empty paragraphs, fixed row heights, or unnecessary page breaks to manufacture whitespace. Remove only newly introduced pagination controls that create avoidable gaps.
+- Keep the cover page, signature page, Appendix 1, and Appendix 2 on independent pages. Keep a Thai-Chinese clause pair together whenever it fits.
+- The signature page must start on a new page and retain its bilingual authorization heading, explanatory statement, and six-row/two-column signature table without splitting the statement/table.
+- For supplied Party A/B DBD or company-registration evidence, retain the source in the company `source-material` folder and insert a complete, legible, proportionally scaled first-page image after its matching appendix anchor. If evidence is absent, retain the template placeholder and identify the missing source in the delivery note.
 
-## Party qualification evidence appendices
+## Verification and cleanup
 
-- When the user supplies a Party A DBD/company-registration source file, keep the original source in that company's source-material folder and insert a legible image of its first page into Appendix 1, `甲方主体资格证明`.
-- When the user supplies a Party B DBD/company-registration source file, keep the original source in that company's source-material folder and insert a legible image of its first page into Appendix 2, `乙方主体资格证明`.
-- For a PDF source, render page 1 to an image; for an image source, use its first page. Insert the rendered source page itself, not a text recreation or screenshot of extracted data.
-- Preserve the full page ratio, avoid cropping or stretching, and keep each appendix title and image together. Do not place Party B evidence in the Party A section or vice versa.
-- If evidence is not supplied, retain the corresponding placeholder and state the missing source in the delivery note. Never silently omit an appendix or fabricate evidence.
-
-## Company folders and verification
-
-1. Keep each company in its own directory with source-material, work-file, and delivery-file folders; retain supplied evidence in source-material and place the final DOCX in delivery-file.
-2. Reopen the finished DOCX and verify all required anchors, confirmed party facts, requested clause changes, table counts/structure, and absence of deleted content that was not requested.
-3. Run the font checks in `assets/template-quality-gate.json`: every Chinese run must resolve to `SimSun`; mixed Thai-Chinese headings and body paragraphs must retain Thai `Leelawadee UI` and Chinese `SimSun`.
-4. When qualification evidence was supplied, verify that the final DOCX contains the correct embedded first-page image after the matching appendix anchor. Render each appendix and confirm the image is readable, complete, correctly oriented, not cropped, stretched, or split across pages.
-5. Render the final DOCX to PDF/PNG and inspect every page: cover, party-information table, preamble, all EOR clauses, signature page, and both appendices. Fix and re-render if any glyph, font, spacing, table, header/footer, page-break, or evidence-image defect appears.
-6. After verification, keep only source inputs, concise QA evidence, maintained scripts, and the authoritative final deliverable; remove drafts, superseded test copies, and conversion caches.
+1. Reopen the completed DOCX. Verify required anchors, table structure, confirmed facts, default fields, requested bilingual edits, and that no unrequested content was deleted.
+2. Apply `assets/template-quality-gate.json`: all Chinese runs explicitly `SimSun`; mixed Thai-Chinese runs `0`; required title, party-table, preamble/framework-order, clause, signature, and appendix anchors exist; signature and both appendices start independently.
+3. Render the finished DOCX to PDF/PNG and inspect every page: cover, party table, preamble, all clauses, signature page, and both appendices. Fix and re-render every font, glyph, spacing, table, header/footer, page-break, or evidence-image defect.
+4. Retain only source inputs, concise QA evidence, maintained scripts, and the authoritative final deliverable; remove drafts, superseded test copies, conversion caches, and rendered inspection files.

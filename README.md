@@ -32,13 +32,14 @@ This clone is a distribution client: `sync-all-platform-skills` pulls the curren
 | --- | --- | --- |
 | hirebox-candidate-report | 0.1.2 | Codex, Claude Code, Gemini |
 | hirebox-candidate-resume | 0.1.2 | Codex, Claude Code, Gemini |
-| hirebox-eor-employment-management-contract | 0.2.0 | Codex, Claude Code, Gemini |
+| hirebox-eor-employment-management-contract | 0.2.2 | Codex, Claude Code, Gemini |
 | hirebox-eor-quotation | 0.1.0 | Codex, Claude Code, Gemini |
+| hirebox-exclusive-recruitment-contract | 0.1.1 | Codex, Claude Code, Gemini |
 | hirebox-general-contract-template | 1.0.1 | Codex, Claude Code, Gemini |
 | hirebox-headhunting-quotation | 0.1.1 | Codex, Claude Code, Gemini |
 | hirebox-invoice-template | 0.1.0 | Codex, Claude Code, Gemini |
 | hirebox-multilingual-contract-template | 0.3.0 | Codex, Claude Code, Gemini |
 | hirebox-project-quotation | 0.1.0 | Codex, Claude Code, Gemini |
-| hirebox-recruitment-headhunting-contract | 0.2.2 | Codex, Claude Code, Gemini |
+| hirebox-recruitment-headhunting-contract | 0.2.5 | Codex, Claude Code, Gemini |
 
 Every released package retains the Codex source version, content hash, and source commit in `skills-index.json`.
