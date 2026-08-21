@@ -1650,22 +1650,32 @@ async function unzipArchive(archivePath, targetDir) {
   await mkdir(stagingRoot, { recursive: true });
 
   if (process.platform === "win32") {
-    await execFileAsync(
-      "powershell",
-      [
-        "-NoProfile",
-        "-Command",
-        "Expand-Archive",
-        "-LiteralPath",
-        archivePath,
-        "-DestinationPath",
-        stagingRoot,
-        "-Force"
-      ],
-      {
-        windowsHide: true
+    try {
+      await execFileAsync(
+        "powershell",
+        [
+          "-NoProfile",
+          "-Command",
+          "Expand-Archive",
+          "-LiteralPath",
+          archivePath,
+          "-DestinationPath",
+          stagingRoot,
+          "-Force"
+        ],
+        {
+          windowsHide: true
+        }
+      );
+    } catch (powershellError) {
+      try {
+        await execFileAsync("tar", ["-xf", archivePath, "-C", stagingRoot], {
+          windowsHide: true
+        });
+      } catch (tarError) {
+        throw new Error(`Unable to extract ZIP with PowerShell or tar: ${tarError.message}`);
       }
-    );
+    }
   } else {
     await unzipArchiveOnUnix(archivePath, stagingRoot);
   }
