@@ -1669,9 +1669,15 @@ async function unzipArchive(archivePath, targetDir) {
       );
     } catch (powershellError) {
       try {
-        await execFileAsync("tar", ["-xf", archivePath, "-C", stagingRoot], {
+        const fallbackArchive = path.join(stagingRoot, "archive.zip");
+        const extractedRoot = path.join(stagingRoot, "content");
+        await cp(archivePath, fallbackArchive);
+        await mkdir(extractedRoot, { recursive: true });
+        await execFileAsync("tar", ["-xf", path.basename(fallbackArchive), "-C", "content"], {
+          cwd: stagingRoot,
           windowsHide: true
         });
+        await rm(fallbackArchive, { force: true });
       } catch (tarError) {
         throw new Error(`Unable to extract ZIP with PowerShell or tar: ${tarError.message}`);
       }
